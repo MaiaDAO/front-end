@@ -137,11 +137,16 @@ export const calculateUserBondDetails = createAsyncThunk("account/calculateUserB
     pendingPayout = await bondContract.pendingPayoutFor(address);
 
     let allowance,
-        balance = 0;
+        balance = 0,
+        balanceVal = 0;
 
     allowance = await reserveContract.allowance(address, bond.getAddressForBond(networkID));
     balance = await reserveContract.balanceOf(address);
-    const balanceVal = balance / 1e6;
+    if(bond.isLP){
+        balanceVal = balance / 1e18;
+    }else{
+        balanceVal = balance / 1e6;
+    }
     
     const maticBalance = await provider.getSigner().getBalance();
     const maticVal = ethers.utils.formatEther(maticBalance);

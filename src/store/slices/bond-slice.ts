@@ -187,7 +187,7 @@ export const calcBondDetails = createAsyncThunk(
       const markdown = await bondCalcContract.markdown(assetAddress)
 
       purchased = await bondCalcContract.valuation(assetAddress, purchased)
-      purchased = (markdown / Math.pow(10, 18)) * (purchased / Math.pow(10, 9))
+      purchased = (markdown / Math.pow(10, 6)) * (purchased / Math.pow(10, 9))
     } else {
       purchased = purchased / Math.pow(10, 6)
     }
@@ -231,7 +231,12 @@ export const bondAsset = createAsyncThunk(
   ) => {
     const depositorAddress = address
     const acceptedSlippage = slippage / 100 || 0.005
-    const valueInWei = Number(value) * 1e6
+    var valueInWei;
+    if(bond.isLP){
+      valueInWei = Number(value) * 1e18
+    }else{
+      valueInWei = Number(value) * 1e6
+    }
     const signer = provider.getSigner()
     const bondContract = bond.getContractForBond(networkID, signer)
 
@@ -250,6 +255,10 @@ export const bondAsset = createAsyncThunk(
           { value: valueInWei, gasPrice },
         )
       } else {
+        console.log(value, valueInWei,
+          maxPremium,
+          depositorAddress);
+        
         bondTx = await bondContract.deposit(
           valueInWei,
           maxPremium,

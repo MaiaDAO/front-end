@@ -48,7 +48,12 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
         } else if (bond.interestDue > 0 || bond.pendingPayout > 0) {
             const shouldProceed = window.confirm(messages.existing_mint);
             if (shouldProceed) {
-                const trimBalance = trim(Number(quantity), 10);
+                var trimBalance;
+                if (bond.isLP) {
+                    trimBalance = trim(Number(quantity), 18);
+                } else {
+                    trimBalance = trim(Number(quantity), 10);
+                }
 
                 await dispatch(
                     bondAsset({
@@ -64,7 +69,11 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                 clearInput();
             }
         } else {
-            const trimBalance = trim(Number(quantity), 10);
+            if (bond.isLP) {
+                trimBalance = trim(Number(quantity), 18);
+            } else {
+                trimBalance = trim(Number(quantity), 10);
+            }
             await dispatch(
                 //@ts-ignore
                 bondAsset({
@@ -172,7 +181,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                         <p>{txnButtonText(pendingTransactions, "approve_" + bond.name, "Approve")}</p>
                     </div>
                 )}
-               
+
                 {/* <div className="transaction-button bond-approve-btn" onClick={handleZapinOpen}>
                     <p>Zap</p>
                 </div> */}
@@ -195,7 +204,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                                 <Skeleton width="100px" />
                             ) : (
                                 <>
-                                    {trim(useMatic ? bond.maticBalance : bond.balance, 4)} {displayUnits}
+                                    {trim(useMatic ? bond.maticBalance : bond.balance, (bond.isLP ? 18 : 4))} {displayUnits}
                                 </>
                             )}
                         </p>

@@ -35,7 +35,7 @@ export class LPBond extends Bond {
         const tokenAmount = await token.balanceOf(addresses.TREASURY_ADDRESS);
         const valuation = await bondCalculator.valuation(tokenAddress, tokenAmount);
         const markdown = await bondCalculator.markdown(tokenAddress);
-        const tokenUSD = (valuation / Math.pow(10, 9)) * (markdown / Math.pow(10, 18));
+        const tokenUSD = (valuation / Math.pow(10, 9)) * (markdown / Math.pow(10, 6));
 
         return tokenUSD;
     }
@@ -61,7 +61,7 @@ export class LPBond extends Bond {
     }
 
     private toTokenDecimal(isMaia: boolean, reserve: number) {
-        return isMaia ? reserve / Math.pow(10, 9) : reserve / Math.pow(10, 18);
+        return isMaia ? reserve / Math.pow(10, 9) : reserve / Math.pow(10, 6);
     }
 }
 

@@ -28,7 +28,7 @@ function RebaseTimer() {
                 {currentBlockTime ? (
                     timeUntilRebase ? (
                         <>
-                            <strong>{timeUntilRebase}</strong> to Next Rebase
+                            <strong>{timeUntilRebase}</strong> to Next Epoch
                         </>
                     ) : (
                         <strong>Rebasing</strong>
