@@ -1,0 +1,13 @@
+.loader-wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../assets/icons/maia-background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparentize($color: #4a483555, $amount: 0);
+
+    color: #ebc0fc;
+}

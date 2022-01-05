@@ -1,0 +1,14 @@
+.landing-root {
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
+    background: transparent;
+    background-image: url("../../assets/icons/maia-background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: transparentize($color: #4a483555, $amount: 0);
+
+    display: flex;
+    flex-direction: column;
+
+}

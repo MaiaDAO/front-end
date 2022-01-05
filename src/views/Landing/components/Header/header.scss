@@ -1,0 +1,94 @@
+.landing-header {
+    padding: 25px 10%;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+
+
+    img {
+
+        margin-left: -10px;
+        margin-bottom: 10px;
+        max-width: 10%;
+        height: auto;
+
+    }
+
+
+    .landing-header-nav-wrap {
+        margin-left: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: default;
+
+        .landing-header-nav-text {
+            background: #505048;
+            background-color: transparentize($color: #4a4835bf, $amount: 0);
+            font-family: Montserrat Medium;
+            font-size: 18px;
+            color: rgb(236, 185, 252);
+            // border: 0.05em solid;
+            border-radius: 0.31em;
+            width: 6.5em;
+            height: auto;
+
+            letter-spacing: 0.09em;
+            text-align: center;
+            line-height: 2em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: 0.5s;
+            margin: 1em;
+        }
+    }
+}
+
+.landing-header-poper {
+    margin-top: -10px;
+    background: #505048;
+    background-color: transparentize($color: #4a4835bf, $amount: 0);
+
+    backdrop-filter: blur(100px);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 100;
+
+
+    .tooltip {
+        display: flex;
+        flex-direction: column;
+        // border: 0.1em solid rgb(197, 97, 228);
+        // border-radius: 0.5em;
+
+        .tooltip-item {
+            padding: 13px 20px;
+            align-items: center;
+            display: flex;
+            align-items: center;
+
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            p {
+
+                margin-left: 10px;
+                font-family: Montserrat Medium;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 20px;
+                color: rgb(236, 185, 252);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 465px) {
+    .landing-header {
+        padding: 25px 0px;
+    }
+}

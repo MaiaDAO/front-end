@@ -1,0 +1,299 @@
+.bond-view {
+  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  z-index: 69;
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .MuiBackdrop-root {
+      background: rgba(100, 100, 100, 0.1) !important;
+      backdrop-filter: blur(33px) !important;
+      -webkit-backdrop-filter: blur(33px) !important;
+    }
+  }
+
+  /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
+  @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .MuiBackdrop-root {
+      background: #505048;
+      background-color: transparentize($color: #4a4835e0, $amount: 0);
+    }
+  }
+
+  .bond-card {
+    --c: rgb(214, 159, 231);
+
+    color: var(--c);
+    border: 0.1em solid var(--c);
+    border-radius: 1.7em;
+    max-width: 803px;
+    min-height: 605px;
+    background: #505048;
+    background-color: transparentize($color: #2f2e26e0, $amount: 0);
+    backdrop-filter: blur(100px);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .bond-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .bond-header-logo {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+
+      .ohm-logo-bg {
+        height: 40px !important;
+        width: 40px !important;
+        padding: 8px !important;
+        margin-left: 0;
+      }
+
+      .bond-header-name {
+
+        text-align: center;
+        margin-left: 10px;
+
+        font-family: Montserrat SemiBold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .bond-data {
+    margin: 10px 0 0 0;
+  }
+
+  .bond-price-data {
+    .bond-price-data-title {
+      font-family: Montserrat Medium;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .bond-price-data-value {
+      font-family: Montserrat Bold;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 29px;
+      color: #FFFFFF;
+    }
+  }
+
+  .bond-price-data-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 23px;
+
+    h4 {
+      margin-bottom: 0;
+    }
+
+    h3.price {
+      font-weight: 600 !important;
+    }
+  }
+
+  .ohm-input {
+    min-width: 50%;
+    max-width: 408px;
+    margin: 5px;
+
+    .matic-checkbox {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      input {
+        height: 15px;
+        width: 15px;
+      }
+
+      p {
+        font-family: Montserrat SemiBold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+        margin-left: 5px;
+      }
+    }
+  }
+
+
+  .transaction-button {
+    min-width: 185px !important;
+    max-width: 408px;
+    width: 100%;
+    margin: 5px !important;
+  }
+
+
+  .bond-one-table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .bond-one-table-btn {
+
+      margin: 0 20px;
+      cursor: pointer;
+      transition: all .4s ease;
+
+      p {
+        font-family: Montserrat SemiBold;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .bond-one-table-btn.active {
+      border-bottom: 1px solid #FFFFFF;
+
+      p {
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .bond-input-wrap {
+
+    min-width: 50%;
+    max-width: 408px;
+  }
+
+  .bond-input {
+    --c:  rgb(214, 159, 231);
+    color: var(--c);
+    border: 0.1em solid var(--c);
+    border-radius: 1.7em;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid  rgb(214, 159, 231);
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 20px;
+
+    .MuiOutlinedInput-input {
+      font-family: Montserrat Medium;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .stake-input-btn {
+      cursor: pointer;
+
+      p {
+        font-family: Montserrat SemiBold;
+        font-weight: 600;
+        font-size: 18px;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .bond-approve-btn {
+    --c:  rgb(214, 159, 231);
+
+    color: var(--c);
+    border: 0.1em solid var(--c);
+    border-radius: 1.7em;
+    height: 58px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-family: Montserrat SemiBold;
+      font-weight: 600;
+      font-size: 18px;
+      color: #FFFFFF;
+      text-align: center;
+    }
+  }
+
+  .help-text {
+    margin-top: 20px;
+
+    .help-text-desc {
+      font-family: Montserrat Light;
+      font-weight: 300;
+      font-size: 14px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  .bond-balance-title {
+    font-family: Montserrat Medium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+  }
+}
+
+.mobile #bond-view {
+  .ohm-card {
+    .card-content {
+      justify-content: space-evenly !important;
+
+      .bond-toggle-row {
+        justify-content: space-evenly !important;
+      }
+
+      .input-row {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        .input-group.ohm-input-group {
+          margin: 10px !important;
+          width: 75%;
+          height: 50px;
+        }
+
+        div.stake-button {
+          width: 75%;
+          margin-left: 0;
+          margin-top: 15px;
+          height: 50px;
+          font-size: 1.3em !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 417px) {
+  .bond-price-data-title {
+    font-size: 17px !important;
+  }
+
+  .bond-price-data-value {
+    font-size: 19px !important;
+  }
+}
