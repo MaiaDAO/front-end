@@ -10,7 +10,7 @@ import { Networks } from "../../constants/blockchain";
 import React from "react";
 import { RootState } from "../store";
 import { IToken } from "../../helpers/tokens";
-import { weth } from "../../helpers/bond/index";
+import { weth, mUsdcBondingRitual } from "../../helpers/bond/index";
 
 interface IGetBalances {
     address: string;
@@ -110,7 +110,7 @@ export interface IUserBondDetails {
 }
 
 export const calculateUserBondDetails = createAsyncThunk("account/calculateUserBondDetails", async ({ address, bond, networkID, provider }: ICalcUserBondDetails) => {
-    if (!address || bond.isClosed) {
+    if (!address || bond.name == mUsdcBondingRitual.name) {
         return new Promise<any>(resevle => {
             resevle({
                 bond: "",
