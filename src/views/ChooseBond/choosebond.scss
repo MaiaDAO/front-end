@@ -110,6 +110,27 @@
         }
       }
 
+      .bond-pair-sold-out:disabled {
+        display: flex !important;
+        align-items: center;
+        justify-content: left;
+        margin-bottom: 15px;
+
+        .MuiBox-root {
+          margin-right: 10px;
+        }
+
+        .bond-name {
+          svg {
+            height: 40px;
+            width: 40px;
+            margin-left: 5px;
+            vertical-align: middle;
+            font-size: 15px;
+          }
+        }
+      }
+
       .data-row {
         margin-bottom: 13px;
         display: flex;
@@ -146,15 +167,46 @@
   }
 
   .bond-name-title {
+
     font-family: Montserrat SemiBold;
     font-weight: 600;
     font-size: 14px;
     color: #FFFFFF;
   }
 
+
+  .bond-name-title-sold-out {
+    text-decoration: line-through;
+    font-family: Montserrat SemiBold;
+    font-weight: 600;
+    font-size: 14px;
+    color: #FFFFFF;
+
+  }
+
   .bond-table-btn {
     box-shadow: 0px 2px 10px 5px rgb(78, 70, 51);
-    --c:  rgb(214, 159, 231);
+    --c: rgb(214, 159, 231);
+    color: var(--c);
+    border: 0.1em solid var(--c);
+    border-radius: 1.3em;
+
+    padding: 6px 35.5px;
+    text-align: center;
+    text-decoration: none;
+
+    p {
+      font-family: Montserrat Semibold;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      color: #FFFFFF;
+    }
+  }
+
+  .bond-table-btn-disabled {
+    box-shadow: 0px 2px 10px 5px rgb(78, 70, 51);
+    --c: rgb(214, 159, 231);
     color: var(--c);
     border: 0.1em solid var(--c);
     border-radius: 1.3em;
@@ -231,7 +283,7 @@
       }
     }
 
-    div.bond-name {
+    .bond-name {
       width: 60%;
       margin-left: 8px !important;
       display: flex;
@@ -241,6 +293,48 @@
       align-items: flex-start;
 
       p {
+        margin-bottom: unset !important;
+        line-height: 140% !important;
+      }
+
+      svg {
+        margin-left: 3px !important;
+        font-size: 1.2em !important;
+      }
+    }
+
+    .bond-name {
+      width: 60%;
+      margin-left: 8px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      align-items: flex-start;
+
+      p {
+        margin-bottom: unset !important;
+        line-height: 140% !important;
+      }
+
+      svg {
+        margin-left: 3px !important;
+        font-size: 1.2em !important;
+      }
+    }
+
+    .bond-name-sold-out {
+      width: 60%;
+      margin-left: 8px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      align-items: flex-start;
+      text-decoration: line-through;
+
+      p {
+        text-decoration: line-through;
         margin-bottom: unset !important;
         line-height: 140% !important;
       }

@@ -9,7 +9,7 @@ import { Skeleton } from "@material-ui/lab";
 import useTokens, { IAllTokenData } from "../../../../hooks/tokens";
 import { trim } from "../../../../helpers";
 import { IAllBondData } from "../../../../hooks/bonds";
-import { mim,usdt } from "../../../../helpers/bond";
+import { usdc,usdt } from "../../../../helpers/bond";
 import { musdc as musdcToken } from "../../../../helpers/tokens";
 
 interface IChooseTokenProps {
@@ -39,7 +39,7 @@ function ChooseToken({ open, handleClose, handleSelect, bond }: IChooseTokenProp
 
         let lpFilter = true;
 
-        if (bond.name === mim.name) {
+        if (bond.name === usdc.name) {
             lpFilter = musdcToken.address !== address;
         }
 

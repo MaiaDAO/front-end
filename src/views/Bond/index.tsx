@@ -23,7 +23,7 @@ function Bond({ bond }: IBondProps) {
     const [slippage, setSlippage] = useState(0.5);
     const [recipientAddress, setRecipientAddress] = useState(address);
 
-    const [view, setView] = useState(0);
+    const [view, setView] = useState(bond.isClosed ? 1 : 0);
 
     const isBondLoading = useSelector<IReduxState, boolean>(state => state.bonding.loading ?? true);
 
@@ -40,7 +40,9 @@ function Bond({ bond }: IBondProps) {
     }, [provider, address]);
 
     const changeView = (newView: number) => () => {
-        setView(newView);
+        if (!bond.isClosed) {
+            setView(newView);
+        }
     };
 
     return (
@@ -61,12 +63,12 @@ function Bond({ bond }: IBondProps) {
                                 <div className="bond-price-data">
                                     <p className="bond-price-data-title">Mint Price</p>
                                     <p className="bond-price-data-value">
-                                        {isBondLoading ? <Skeleton /> : bond.isLP || bond.name === "wmetis" ? `$${trim(bond.bondPrice, 2)}` : `${trim(bond.bondPrice, 2)} m.USDC`}
+                                        {isBondLoading || bond.isClosed ? <Skeleton /> : bond.isLP || bond.name === "wmetis" ? `$${trim(bond.bondPrice, 2)}` : `${trim(bond.bondPrice, 2)} m.USDC`}
                                     </p>
                                 </div>
                                 <div className="bond-price-data">
                                     <p className="bond-price-data-title">MAIA Price</p>
-                                    <p className="bond-price-data-value">{isBondLoading ? <Skeleton /> : `$${trim(bond.marketPrice, 2)}`}</p>
+                                    <p className="bond-price-data-value">{isBondLoading || bond.isClosed ? <Skeleton /> : `$${trim(bond.marketPrice, 2)}`}</p>
                                 </div>
                             </Box>
 

@@ -35,15 +35,15 @@ export const loadAppDetails = createAsyncThunk(
         const stakingTVL = circSupply * marketPrice;
         const marketCap = totalSupply * marketPrice;
 
-        const tokenBalPromises = allBonds.map(bond => bond.getTreasuryBalance(networkID, provider));
+        const tokenBalPromises = allBonds.map(bond => bond.isClosed ? 0 : bond.getTreasuryBalance(networkID, provider));
         const tokenBalances = await Promise.all(tokenBalPromises);
         const treasuryBalance = tokenBalances.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
 
-        const tokenAmountsPromises = allBonds.map(bond => bond.getTokenAmount(networkID, provider));
+        const tokenAmountsPromises = allBonds.map(bond => bond.isClosed ? 0 : bond.getTokenAmount(networkID, provider));
         const tokenAmounts = await Promise.all(tokenAmountsPromises);
         const rfvTreasury = tokenAmounts.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
 
-        const maiaBondsAmountsPromises = allBonds.map(bond => bond.getMaiaAmount(networkID, provider));
+        const maiaBondsAmountsPromises = allBonds.map(bond => bond.isClosed ? 0 : bond.getMaiaAmount(networkID, provider));
         const maiaBondsAmounts = await Promise.all(maiaBondsAmountsPromises);
         const maiaAmount = maiaBondsAmounts.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
         const maiaSupply = totalSupply - maiaAmount;

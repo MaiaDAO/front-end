@@ -12,6 +12,7 @@ import useDebounce from "../../hooks/debounce";
 import { messages } from "../../constants/messages";
 import { warning } from "../../store/slices/messages-slice";
 import Zapin from "./Zapin";
+import { weth } from '../../helpers/bond'
 
 interface IBondPurchaseProps {
     bond: IAllBondData;
@@ -49,7 +50,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
             const shouldProceed = window.confirm(messages.existing_mint);
             if (shouldProceed) {
                 var trimBalance;
-                if (bond.isLP) {
+                if (bond.isLP || bond.name == weth.name) {
                     trimBalance = trim(Number(quantity), 18);
                 } else {
                     trimBalance = trim(Number(quantity), 10);
@@ -69,7 +70,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                 clearInput();
             }
         } else {
-            if (bond.isLP) {
+            if (bond.isLP || bond.name == weth.name) {
                 trimBalance = trim(Number(quantity), 18);
             } else {
                 trimBalance = trim(Number(quantity), 10);
@@ -204,7 +205,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                                 <Skeleton width="100px" />
                             ) : (
                                 <>
-                                    {trim(useMatic ? bond.maticBalance : bond.balance, (bond.isLP ? 18 : 4))} {displayUnits}
+                                    {trim(useMatic ? bond.maticBalance : bond.balance, (bond.isLP ? 18 : (bond.name == weth.name ? 8: 4)))} {displayUnits}
                                 </>
                             )}
                         </p>

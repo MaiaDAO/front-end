@@ -13,7 +13,7 @@ import { Bond } from '../../helpers/bond/bond'
 import { Networks } from '../../constants/blockchain'
 import { getBondCalculator } from '../../helpers/bond-calculator'
 import { RootState } from '../store'
-//import { mim, usdt } from '../../helpers/bond'
+import { usdc, usdt, weth } from '../../helpers/bond'
 import { error, warning, success, info } from '../slices/messages-slice'
 import { messages } from '../../constants/messages'
 import { getGasPrice } from '../../helpers/get-gas-price'
@@ -129,24 +129,26 @@ export const calcBondDetails = createAsyncThunk(
     const bondContract = bond.getContractForBond(networkID, provider)
     const bondCalcContract = getBondCalculator(networkID, provider)
 
-    const terms = await bondContract.terms()
+    const vestingTerm = bond.name == "weth" ? "432000" : (await bondContract.terms()).vestingTerm
     const maxBondPrice = (await bondContract.maxPayout()) / Math.pow(10, 9)
 
     let marketPrice = (await getMarketPrice(networkID, provider)) * 1e9
 
-    const mimPrice = getTokenPrice('USDC')
-    marketPrice = (marketPrice / Math.pow(10, 9)) * mimPrice
+    const musdcPrice = getTokenPrice('USDC')
+    marketPrice = (marketPrice / Math.pow(10, 9)) * musdcPrice
 
-    try {
-      bondPrice = await bondContract.bondPriceInUSD()
+    if(!bond.isClosed){
+      try {
+        bondPrice = await bondContract.bondPriceInUSD()
 
-      bondDiscount = (marketPrice * Math.pow(10, 6) - bondPrice) / bondPrice
-    } catch (e) {
-      console.log('error getting bondPriceInUSD', e)
+        bondDiscount = (marketPrice * Math.pow(10, (bond.decimals == undefined ? 6 : bond.decimals)) - bondPrice) / bondPrice
+      } catch (e) {
+        console.log('error getting bondPriceInUSD', e)
+      }
     }
 
     let maxBondPriceToken = 0
-    const maxBodValue = ethers.utils.parseEther('1')
+    const maxBondValue = ethers.utils.parseEther('1')
 
     if (bond.isLP) {
       valuation = await bondCalcContract.valuation(
@@ -158,7 +160,7 @@ export const calcBondDetails = createAsyncThunk(
 
       const maxValuation = await bondCalcContract.valuation(
         bond.getAddressForReserve(networkID),
-        maxBodValue,
+        maxBondValue,
       )
       const maxBondQuote = await bondContract.payoutFor(maxValuation)
       maxBondPriceToken = maxBondPrice / (maxBondQuote * Math.pow(10, -9))
@@ -166,7 +168,7 @@ export const calcBondDetails = createAsyncThunk(
       bondQuote = await bondContract.payoutFor(amountInWei)
       bondQuote = bondQuote / Math.pow(10, 18)
 
-      const maxBondQuote = await bondContract.payoutFor(maxBodValue)
+      const maxBondQuote = await bondContract.payoutFor(maxBondValue)
       maxBondPriceToken = maxBondPrice / (maxBondQuote * Math.pow(10, -18))
     }
 
@@ -178,18 +180,26 @@ export const calcBondDetails = createAsyncThunk(
       )
     }
 
-    // Calculate bonds purchased
-    const token = bond.getContractForReserve(networkID, provider)
-    let purchased = await token.balanceOf(addresses.TREASURY_ADDRESS)
+    let purchased = 0;
 
-    if (bond.isLP) {
-      const assetAddress = bond.getAddressForReserve(networkID)
-      const markdown = await bondCalcContract.markdown(assetAddress)
+    if(!bond.isClosed){
+      // Calculate bonds purchased
+      const token = bond.getContractForReserve(networkID, provider)
+      purchased = await token.balanceOf(addresses.TREASURY_ADDRESS)
 
-      purchased = await bondCalcContract.valuation(assetAddress, purchased)
-      purchased = (markdown / Math.pow(10, 6)) * (purchased / Math.pow(10, 9))
-    } else {
-      purchased = purchased / Math.pow(10, 6)
+      if (bond.isLP) {
+        const assetAddress = bond.getAddressForReserve(networkID)
+        const markdown = await bondCalcContract.markdown(assetAddress)
+
+        purchased = await bondCalcContract.valuation(assetAddress, purchased)
+        purchased = (markdown / Math.pow(10, 6)) * (purchased / Math.pow(10, 9))
+      } else if (bond.name === weth.name) {
+        purchased = purchased / Math.pow(10, 18);
+        const tokenPrice = getTokenPrice("WETH");
+        purchased = purchased * tokenPrice;
+      } else {
+        purchased = purchased / Math.pow(10, 6)
+      }
     }
 
     return {
@@ -197,9 +207,9 @@ export const calcBondDetails = createAsyncThunk(
       bondDiscount,
       bondQuote,
       purchased,
-      vestingTerm: Number(terms.vestingTerm),
+      vestingTerm: Number(vestingTerm),
       maxBondPrice,
-      bondPrice: bondPrice / Math.pow(10, 6),
+      bondPrice: bondPrice / Math.pow(10, (bond.decimals == undefined ? 6 : bond.decimals)),
       marketPrice,
       maxBondPriceToken,
     }
@@ -232,7 +242,7 @@ export const bondAsset = createAsyncThunk(
     const depositorAddress = address
     const acceptedSlippage = slippage / 100 || 0.005
     var valueInWei;
-    if(bond.isLP){
+    if(bond.isLP || bond.name == weth.name){
       valueInWei = Number(value) * 1e18
     }else{
       valueInWei = Number(value) * 1e6

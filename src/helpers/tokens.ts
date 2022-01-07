@@ -78,6 +78,13 @@ const maia: IToken = {
   decimals: 9,
 }
 
+const weth: IToken = {
+    name: "WETH.e",
+    address: "0x420000000000000000000000000000000000000A",
+    img: WethEIcon,
+    decimals: 18,
+};
+
 // export const wmetis: IToken = {
 //     name: "WMETIS",
 //     address: "0x99EdbC9419747D16046B2BCF06721e58BF3BEA75",
@@ -378,13 +385,6 @@ const usdt: IToken = {
 //     decimals: 18,
 // };
 
-// const weth: IToken = {
-//     name: "WETH.e",
-//     address: "",
-//     img: WethEIcon,
-//     decimals: 18,
-// };
-
 // const xava: IToken = {
 //     name: "XAVA",
 //     address: "",
@@ -446,7 +446,7 @@ export default [
   // wmetis,
   // wbtc,
   // wet,
-  // weth,
+  weth,
   // xava,
   // yak,
 ]

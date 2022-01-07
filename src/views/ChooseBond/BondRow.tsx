@@ -16,54 +16,109 @@ export function BondDataCard({ bond }: IBondProps) {
     return (
         <Slide direction="up" in={true}>
             <Paper className="bond-data-card">
-                <div className="bond-pair">
-                    <BondLogo bond={bond} />
-                    <div className="bond-name">
-                        <p className="bond-name-title">{bond.displayName}</p>
-                        {bond.isLP && (
-                            <div>
-                                <Link href={bond.lpUrl} target="_blank">
-                                    <p className="bond-name-title">Add Liquidity</p>
-                                </Link>
+                {bond.isClosed && (
+                    <div>
+                        <div className="bond-pair-sold-out">
+                            <BondLogo bond={bond} />
+                            <div className="bond-name-sold-out">
+                                <p className="bond-name-title-sold-out">{bond.displayName}</p>
+                                {bond.isLP && (
+                                    <div>
+                                        <Link href={bond.lpUrl} target="_blank">
+                                            <p className="bond-name-title">Add Liquidity</p>
+                                        </Link>
+                                    </div>
+                                )}
                             </div>
-                        )}
+                        </div>
+
+                        <div className="data-row-sold-out">
+                            <p className="bond-name-title">Price</p>
+                            <p className="bond-price bond-name-title">
+                                <>
+                                    {priceUnits(bond)} {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}
+                                </>
+                            </p>
+                        </div>
+
+                        <div className="data-row-sold-out">
+                            <p className="bond-name-title">ROI</p>
+                            <p className="bond-name-title">{isBondLoading ? <Skeleton width="50px" /> : `${trim(bond.bondDiscount * 100, 2)}%`}</p>
+                        </div>
+
+                        <div className="data-row-sold-out">
+                            <p className="bond-name-title">Purchased</p>
+                            <p className="bond-name-title">
+                                {isBondLoading ? (
+                                    <Skeleton width="80px" />
+                                ) : (
+                                    new Intl.NumberFormat("en-US", {
+                                        style: "currency",
+                                        currency: "USD",
+                                        maximumFractionDigits: 0,
+                                        minimumFractionDigits: 0,
+                                    }).format(bond.purchased)
+                                )}
+                            </p>
+                        </div>
+
+                        <Link component={NavLink} to={`/mints/${bond.name}`}>
+                            <div className="bond-table-btn-sold-out">
+                                <p>Mint {bond.displayName}</p>
+                            </div>
+                        </Link>
                     </div>
-                </div>
-
-                <div className="data-row">
-                    <p className="bond-name-title">Price</p>
-                    <p className="bond-price bond-name-title">
-                        <>
-                            {priceUnits(bond)} {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}
-                        </>
-                    </p>
-                </div>
-
-                <div className="data-row">
-                    <p className="bond-name-title">ROI</p>
-                    <p className="bond-name-title">{isBondLoading ? <Skeleton width="50px" /> : `${trim(bond.bondDiscount * 100, 2)}%`}</p>
-                </div>
-
-                <div className="data-row">
-                    <p className="bond-name-title">Purchased</p>
-                    <p className="bond-name-title">
-                        {isBondLoading ? (
-                            <Skeleton width="80px" />
-                        ) : (
-                            new Intl.NumberFormat("en-US", {
-                                style: "currency",
-                                currency: "USD",
-                                maximumFractionDigits: 0,
-                                minimumFractionDigits: 0,
-                            }).format(bond.purchased)
-                        )}
-                    </p>
-                </div>
-                <Link component={NavLink} to={`/mints/${bond.name}`}>
-                    <div className="bond-table-btn">
-                        <p>Mint {bond.displayName}</p>
+                )}
+                {!bond.isClosed && (
+                    <div>
+                        {" "}
+                        <div className="bond-pair">
+                            <BondLogo bond={bond} />
+                            <div className="bond-name">
+                                <p className="bond-name-title">{bond.displayName}</p>
+                                {bond.isLP && (
+                                    <div>
+                                        <Link href={bond.lpUrl} target="_blank">
+                                            <p className="bond-name-title">Add Liquidity</p>
+                                        </Link>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        <div className="data-row">
+                            <p className="bond-name-title">Price</p>
+                            <p className="bond-price bond-name-title">
+                                <>
+                                    {priceUnits(bond)} {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}
+                                </>
+                            </p>
+                        </div>
+                        <div className="data-row">
+                            <p className="bond-name-title">ROI</p>
+                            <p className="bond-name-title">{isBondLoading ? <Skeleton width="50px" /> : `${trim(bond.bondDiscount * 100, 2)}%`}</p>
+                        </div>
+                        <div className="data-row">
+                            <p className="bond-name-title">Purchased</p>
+                            <p className="bond-name-title">
+                                {isBondLoading ? (
+                                    <Skeleton width="80px" />
+                                ) : (
+                                    new Intl.NumberFormat("en-US", {
+                                        style: "currency",
+                                        currency: "USD",
+                                        maximumFractionDigits: 0,
+                                        minimumFractionDigits: 0,
+                                    }).format(bond.purchased)
+                                )}
+                            </p>
+                        </div>
+                        <Link component={NavLink} to={`/mints/${bond.name}`}>
+                            <div className="bond-table-btn">
+                                <p>Mint {bond.displayName}</p>
+                            </div>
+                        </Link>
                     </div>
-                </Link>
+                )}
             </Paper>
         </Slide>
     );
@@ -76,14 +131,18 @@ export function BondTableData({ bond }: IBondProps) {
         <TableRow>
             <TableCell align="left">
                 <BondLogo bond={bond} />
-                <div className="bond-name">
-                    <p className="bond-name-title">{bond.displayName}</p>
-                    {bond.isLP && (
-                        <Link color="primary" href={bond.lpUrl} target="_blank">
-                            <p className="bond-name-title">View Contract</p>
-                        </Link>
-                    )}
-                </div>
+                    <div className="bond-name">
+                        {bond.isClosed ? 
+                            <p className="bond-name-title-sold-out">{bond.displayName}</p>
+                        :
+                            <p className="bond-name-title">{bond.displayName}</p>
+                        }
+                        {bond.isLP && (
+                            <Link color="primary" href={bond.lpUrl} target="_blank">
+                                <p className="bond-name-title">Add liquidity</p>
+                            </Link>
+                        )}
+                    </div>
             </TableCell>
             <TableCell align="center">
                 <p className="bond-name-title">
@@ -112,9 +171,17 @@ export function BondTableData({ bond }: IBondProps) {
             <TableCell>
                 <Link component={NavLink} to={`/mints/${bond.name}`}>
                     <div className="bond-table-btn">
-                        <p>Mint</p>
+                        <p>{bond.isClosed ? "Claim" : "Mint"}</p>
                     </div>
                 </Link>
+
+                {/* {bond.isBondingRitual && (
+                    <Link component={NavLink} to={`/mints/`}>
+                        <div className="bond-table-btn">
+                            <p>Mint</p>
+                        </div>
+                    </Link>
+                )} */}
             </TableCell>
         </TableRow>
     );

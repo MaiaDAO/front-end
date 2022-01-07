@@ -12,6 +12,7 @@ export interface BondOpts {
     readonly bondContractABI: ContractInterface; // ABI for contract
     readonly networkAddrs: NetworkAddresses; // Mapping of network --> Addresses
     readonly bondToken: string; // Unused, but native token to buy the bond.
+    readonly isClosed: boolean;
 }
 
 export abstract class Bond {
@@ -23,8 +24,10 @@ export abstract class Bond {
     public readonly networkAddrs: NetworkAddresses;
     public readonly bondToken: string;
     public readonly lpUrl?: string;
-
+    public readonly isClosed?: boolean;
+    public readonly decimals?: number;
     // The following two fields will differ on how they are set depending on bond type
+
     public abstract isLP: boolean;
     protected abstract reserveContractAbi: ContractInterface; // Token ABI
     public abstract displayUnits: string;
@@ -35,6 +38,7 @@ export abstract class Bond {
     public abstract getMaiaAmount(networkID: Networks, provider: StaticJsonRpcProvider): Promise<number>;
 
     constructor(type: BondType, bondOpts: BondOpts) {
+        this.isClosed = bondOpts.isClosed;
         this.name = bondOpts.name;
         this.displayName = bondOpts.displayName;
         this.type = type;

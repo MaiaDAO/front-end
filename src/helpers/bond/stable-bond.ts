@@ -7,17 +7,20 @@ import { getAddresses } from "../../constants/addresses";
 
 export interface StableBondOpts extends BondOpts {
     readonly reserveContractAbi: ContractInterface;
+    readonly decimals: number;
 }
 
 export class StableBond extends Bond {
     readonly isLP = false;
     readonly reserveContractAbi: ContractInterface;
     readonly displayUnits: string;
+    readonly decimals: number;
 
     constructor(stableBondOpts: StableBondOpts) {
         super(BondType.StableAsset, stableBondOpts);
 
         // For stable bonds the display units are the same as the actual token
+        this.decimals = stableBondOpts.decimals;
         this.displayUnits = stableBondOpts.displayName;
         this.reserveContractAbi = stableBondOpts.reserveContractAbi;
     }
@@ -26,7 +29,7 @@ export class StableBond extends Bond {
         const addresses = getAddresses(networkID);
         const token = this.getContractForReserve(networkID, provider);
         const tokenAmount = await token.balanceOf(addresses.TREASURY_ADDRESS);
-        return tokenAmount / Math.pow(10, 6);
+        return tokenAmount / Math.pow(10, this.decimals);
     }
 
     public async getTokenAmount(networkID: Networks, provider: StaticJsonRpcProvider) {
@@ -39,7 +42,7 @@ export class StableBond extends Bond {
 }
 
 // These are special bonds that have different valuation methods
-export interface CustomBondOpts extends StableBondOpts {}
+export interface CustomBondOpts extends StableBondOpts { }
 
 export class CustomBond extends StableBond {
     constructor(customBondOpts: CustomBondOpts) {
