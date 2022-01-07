@@ -23,7 +23,7 @@ export const usdc = new StableBond({
   bondIconSvg: DaiIcon,
   bondContractABI: StableBondContract,
   reserveContractAbi: StableReserveContract,
-  isClosed: false,
+  isClosed: true,
   decimals: 6,
   networkAddrs: {
     [Networks.METIS]: {
@@ -42,7 +42,7 @@ export const usdt = new StableBond({
   bondIconSvg: USDTIcon,
   bondContractABI: StableBondContract,
   reserveContractAbi: StableReserveContract,
-  isClosed: false,
+  isClosed: true,
   decimals: 6,
   networkAddrs: {
     [Networks.METIS]: {
@@ -61,7 +61,7 @@ export const weth = new StableBond({
   bondIconSvg: ETHicon,
   bondContractABI: StableBondContract,
   reserveContractAbi: StableReserveContract,
-  isClosed: false,
+  isClosed: true,
   decimals: 18,
   networkAddrs: {
     [Networks.METIS]: {
@@ -86,7 +86,7 @@ export const mimMaia = new LPBond({
   },
   lpUrl:
     'https://tethys.finance/pool/add?inputCurrency=0xEA32A96608495e54156Ae48931A7c20f0dcc1a21&outputCurrency=0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD',
-  isClosed: false,
+  isClosed: true,
 })
 
 export const usdcSoldOut = new StableBond({
