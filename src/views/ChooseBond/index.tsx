@@ -78,8 +78,58 @@ function ChooseBond() {
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {bonds.map(bond => (
+                                        {bonds.map(bond => (bond.isClosed? "" :
                                             <BondTableData key={bond.name} bond={bond} />
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Grid>
+                    )}
+                </div>
+            </Zoom>
+            <br></br>
+            {isSmallScreen && (
+                <div className="choose-bond-view-card-container">
+                    <Grid container item spacing={2}>
+                        {bonds.map(bond => (
+                            <Grid item xs={12} key={bond.name}>
+                                <BondDataCard key={bond.name} bond={bond} />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </div>
+            )}
+            <Zoom in={true}>
+                <div className="choose-bond-view-card">
+                    <div className="choose-bond-view-card-header">
+                        <p className="choose-bond-view-card-title"> Closed Bonds</p>
+                    </div>
+                    {!isSmallScreen && (
+                        <Grid container item>
+                            <TableContainer className="choose-bond-view-card-table">
+                                <Table>
+                                    {/* <TableHead>
+                                        <TableRow>
+                                            <TableCell align="center">
+                                                <p className="choose-bond-view-card-table-title">Mint</p>
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <p className="choose-bond-view-card-table-title">Price</p>
+                                            </TableCell>
+                                            <TableCell align="center">
+                                                <p className="choose-bond-view-card-table-title">ROI</p>
+                                            </TableCell>
+                                            <TableCell align="right">
+                                                <p className="choose-bond-view-card-table-title">Purchased</p>
+                                            </TableCell>
+                                            <TableCell align="right"></TableCell>
+                                        </TableRow>
+                                    </TableHead> */}
+                                    <TableBody>
+                                        {bonds.map(bond => (bond.isClosed?
+                                            <BondTableData key={bond.name} bond={bond} />
+                                            : ""
                                         ))}
                                     </TableBody>
                                 </Table>

@@ -145,17 +145,17 @@ export function BondTableData({ bond }: IBondProps) {
                     </div>
             </TableCell>
             <TableCell align="center">
-                <p className="bond-name-title">
+                {!bond.isClosed && <p className="bond-name-title">
                     <>
                         <span className="currency-icon">{priceUnits(bond)}</span> {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}
                     </>
-                </p>
+                </p>}
             </TableCell>
             <TableCell align="right">
-                <p className="bond-name-title">{isBondLoading ? <Skeleton width="50px" /> : `${trim(bond.bondDiscount * 100, 2)}%`}</p>
+                {!bond.isClosed && <p className="bond-name-title">{isBondLoading ? <Skeleton width="50px" /> : `${trim(bond.bondDiscount * 100, 2)}%`}</p>}
             </TableCell>
             <TableCell align="right">
-                <p className="bond-name-title">
+                {!bond.isClosed && <p className="bond-name-title">
                     {isBondLoading ? (
                         <Skeleton width="50px" />
                     ) : (
@@ -166,7 +166,7 @@ export function BondTableData({ bond }: IBondProps) {
                             minimumFractionDigits: 0,
                         }).format(bond.purchased)
                     )}
-                </p>
+                </p>}
             </TableCell>
             <TableCell>
                 <Link component={NavLink} to={`/mints/${bond.name}`}>
@@ -174,14 +174,6 @@ export function BondTableData({ bond }: IBondProps) {
                         <p>{bond.isClosed ? "Claim" : "Mint"}</p>
                     </div>
                 </Link>
-
-                {/* {bond.isBondingRitual && (
-                    <Link component={NavLink} to={`/mints/`}>
-                        <div className="bond-table-btn">
-                            <p>Mint</p>
-                        </div>
-                    </Link>
-                )} */}
             </TableCell>
         </TableRow>
     );

@@ -106,7 +106,7 @@ function SideBar() {
 
                     <div className="bond-discounts">
                         <p>Mint discounts</p>
-                        {bonds.map((bond, i) => (
+                        {bonds.map((bond, i) => (bond.isClosed ?  "" :
                             <Link component={NavLink} to={`/mints/${bond.name}`} key={i} className={"bond"}>
                                 {!bond.bondDiscount ? (
                                     <Skeleton variant="text" width={"150px"} />
