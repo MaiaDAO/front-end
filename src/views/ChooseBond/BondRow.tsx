@@ -16,7 +16,7 @@ export function BondDataCard({ bond }: IBondProps) {
     return (
         <Slide direction="up" in={true}>
             <Paper className="bond-data-card">
-                {bond.isClosed && (
+                {bond.isClosed ? (
                     <div>
                         <div className="bond-pair-sold-out">
                             <BondLogo bond={bond} />
@@ -31,45 +31,15 @@ export function BondDataCard({ bond }: IBondProps) {
                                 )}
                             </div>
                         </div>
-
-                        <div className="data-row-sold-out">
-                            <p className="bond-name-title">Price</p>
-                            <p className="bond-price bond-name-title">
-                                <>
-                                    {priceUnits(bond)} {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}
-                                </>
-                            </p>
-                        </div>
-
-                        <div className="data-row-sold-out">
-                            <p className="bond-name-title">ROI</p>
-                            <p className="bond-name-title">{isBondLoading ? <Skeleton width="50px" /> : `${trim(bond.bondDiscount * 100, 2)}%`}</p>
-                        </div>
-
-                        <div className="data-row-sold-out">
-                            <p className="bond-name-title">Purchased</p>
-                            <p className="bond-name-title">
-                                {isBondLoading ? (
-                                    <Skeleton width="80px" />
-                                ) : (
-                                    new Intl.NumberFormat("en-US", {
-                                        style: "currency",
-                                        currency: "USD",
-                                        maximumFractionDigits: 0,
-                                        minimumFractionDigits: 0,
-                                    }).format(bond.purchased)
-                                )}
-                            </p>
-                        </div>
-
                         <Link component={NavLink} to={`/mints/${bond.name}`}>
-                            <div className="bond-table-btn-sold-out">
-                                <p>Mint {bond.displayName}</p>
+                            <div className="bond-table-btn">
+                                <p>Claim {bond.displayName}</p>
                             </div>
                         </Link>
                     </div>
-                )}
-                {!bond.isClosed && (
+                )
+                : 
+                (
                     <div>
                         {" "}
                         <div className="bond-pair">
@@ -89,7 +59,7 @@ export function BondDataCard({ bond }: IBondProps) {
                             <p className="bond-name-title">Price</p>
                             <p className="bond-price bond-name-title">
                                 <>
-                                    {priceUnits(bond)} {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}
+                                    {bond.isLP && priceUnits(bond)} {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)} {!bond.isLP && priceUnits(bond)}
                                 </>
                             </p>
                         </div>
@@ -147,7 +117,7 @@ export function BondTableData({ bond }: IBondProps) {
             <TableCell align="center">
                 {!bond.isClosed && <p className="bond-name-title">
                     <>
-                        <span className="currency-icon">{priceUnits(bond)}</span> {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}
+                        <span className="currency-icon">{bond.isLP && priceUnits(bond)}</span>{isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}<span className="currency-icon">{!bond.isLP && priceUnits(bond)}</span>
                     </>
                 </p>}
             </TableCell>

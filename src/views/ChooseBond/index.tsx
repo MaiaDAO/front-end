@@ -26,7 +26,7 @@ function ChooseBond() {
             <Zoom in={true}>
                 <div className="choose-bond-view-card">
                     <div className="choose-bond-view-card-header">
-                        <p className="choose-bond-view-card-title"> Mint</p>
+                        <p className="choose-bond-view-card-title"> Mint - The Bondening 🕊️</p>
                     </div>
 
                     <Grid container item xs={12} spacing={2} className="choose-bond-view-card-metrics">
@@ -78,7 +78,7 @@ function ChooseBond() {
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {bonds.map(bond => (bond.isClosed? "" :
+                                        {bonds.map(bond => (!bond.isClosed &&
                                             <BondTableData key={bond.name} bond={bond} />
                                         ))}
                                     </TableBody>
@@ -88,11 +88,10 @@ function ChooseBond() {
                     )}
                 </div>
             </Zoom>
-            <br></br>
             {isSmallScreen && (
                 <div className="choose-bond-view-card-container">
                     <Grid container item spacing={2}>
-                        {bonds.map(bond => (
+                        {bonds.map(bond => (!bond.isClosed &&
                             <Grid item xs={12} key={bond.name}>
                                 <BondDataCard key={bond.name} bond={bond} />
                             </Grid>
@@ -100,6 +99,7 @@ function ChooseBond() {
                     </Grid>
                 </div>
             )}
+            <br></br>
             <Zoom in={true}>
                 <div className="choose-bond-view-card">
                     <div className="choose-bond-view-card-header">
@@ -109,27 +109,9 @@ function ChooseBond() {
                         <Grid container item>
                             <TableContainer className="choose-bond-view-card-table">
                                 <Table>
-                                    {/* <TableHead>
-                                        <TableRow>
-                                            <TableCell align="center">
-                                                <p className="choose-bond-view-card-table-title">Mint</p>
-                                            </TableCell>
-                                            <TableCell align="center">
-                                                <p className="choose-bond-view-card-table-title">Price</p>
-                                            </TableCell>
-                                            <TableCell align="center">
-                                                <p className="choose-bond-view-card-table-title">ROI</p>
-                                            </TableCell>
-                                            <TableCell align="right">
-                                                <p className="choose-bond-view-card-table-title">Purchased</p>
-                                            </TableCell>
-                                            <TableCell align="right"></TableCell>
-                                        </TableRow>
-                                    </TableHead> */}
                                     <TableBody>
-                                        {bonds.map(bond => (bond.isClosed?
+                                        {bonds.map(bond => (bond.isClosed &&
                                             <BondTableData key={bond.name} bond={bond} />
-                                            : ""
                                         ))}
                                     </TableBody>
                                 </Table>
@@ -142,7 +124,7 @@ function ChooseBond() {
             {isSmallScreen && (
                 <div className="choose-bond-view-card-container">
                     <Grid container item spacing={2}>
-                        {bonds.map(bond => (
+                        {bonds.map(bond => (bond.isClosed &&
                             <Grid item xs={12} key={bond.name}>
                                 <BondDataCard key={bond.name} bond={bond} />
                             </Grid>

@@ -56,13 +56,13 @@ export interface IToken {
   decimals: number
 }
 
-// export const metis: IToken = {
-//     name: "METIS",
-//     isMetis: true,
-//     img: MaticIcon,
-//     address: "",
-//     decimals: 18,
-// };
+export const metis: IToken = {
+    name: "METIS",
+    isMetis: true,
+    img: MaticIcon,
+    address: "",
+    decimals: 18,
+};
 
 export const musdc: IToken = {
   name: 'm.USDC',
@@ -85,12 +85,12 @@ const weth: IToken = {
     decimals: 18,
 };
 
-// export const wmetis: IToken = {
-//     name: "WMETIS",
-//     address: "0x99EdbC9419747D16046B2BCF06721e58BF3BEA75",
-//     img: WmaticIcon,
-//     decimals: 18,
-// };
+export const wmetis: IToken = {
+    name: "WMETIS",
+    address: "0x75cb093E4D61d2A2e65D8e0BBb01DE8d89b53481",
+    img: WmaticIcon,
+    decimals: 18,
+};
 
 // const aave: IToken = {
 //     name: "AAVE.e",

@@ -4,7 +4,7 @@ import { IAllBondData } from "../hooks/bonds";
 import { usdc } from "../helpers/bond";
 
 export const priceUnits = (bond: IAllBondData) => {
-    // if (bond.name === mim.name) return <SvgIcon component={MimImg} viewBox="0 0 32 32" style={{ height: "15px", width: "15px" }} />;
+    if (!bond.isLP) return bond.displayName;
 
     return "$";
 };

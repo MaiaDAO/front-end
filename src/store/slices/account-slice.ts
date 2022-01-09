@@ -10,7 +10,7 @@ import { Networks } from "../../constants/blockchain";
 import React from "react";
 import { RootState } from "../store";
 import { IToken } from "../../helpers/tokens";
-import { weth, mUsdcBondingRitual } from "../../helpers/bond/index";
+import { usdt, usdc } from "../../helpers/bond/index";
 
 interface IGetBalances {
     address: string;
@@ -110,7 +110,7 @@ export interface IUserBondDetails {
 }
 
 export const calculateUserBondDetails = createAsyncThunk("account/calculateUserBondDetails", async ({ address, bond, networkID, provider }: ICalcUserBondDetails) => {
-    if (!address || bond.name == mUsdcBondingRitual.name) {
+    if (!address) {
         return new Promise<any>(resevle => {
             resevle({
                 bond: "",
@@ -143,7 +143,7 @@ export const calculateUserBondDetails = createAsyncThunk("account/calculateUserB
     
     allowance = await reserveContract.allowance(address, bond.getAddressForBond(networkID));
     balance = await reserveContract.balanceOf(address);
-    if(bond.isLP || bond.name == weth.name){
+    if(bond.isLP || (bond.name !== usdc.name && bond.name !== usdt.name)){
         balanceVal = balance / 1e18;
     }else{
         balanceVal = balance / 1e6;
