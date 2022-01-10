@@ -56,7 +56,7 @@ export const usdt = new StableBond({
 
 
 
-export const weth = new StableBond({
+export const weth = new CustomBond({
   name: 'weth',
   displayName: 'WETH',
   bondToken: 'WETH',
@@ -67,15 +67,15 @@ export const weth = new StableBond({
   decimals: 18,
   networkAddrs: {
     [Networks.METIS]: {
-      bondAddress: '0xf4d84C68C8a02530deDdF5B67134B4d6F7c41A76',
+      bondAddress: '0x3245f49dda5E717a69356e53FD407060e34Dae69',
       reserveAddress: '0x420000000000000000000000000000000000000A',
     },
   },
 })
 
-export const metis = new StableBond({
+export const wmetis = new CustomBond({
   name: 'wmetis',
-  displayName: 'WMETIS',
+  displayName: 'METIS',
   bondToken: 'METIS',
   bondIconSvg: WMETISicon,
   bondContractABI: StableBondContract,
@@ -84,8 +84,8 @@ export const metis = new StableBond({
   decimals: 18,
   networkAddrs: {
     [Networks.METIS]: {
-      bondAddress: '0xd39F300731Ad59EE755300D00e77aE2711bCe5Ca',
-      reserveAddress: '0x75cb093E4D61d2A2e65D8e0BBb01DE8d89b53481',
+      bondAddress: '0xEc69ecD8D6F1301e4bD9dE5a4e91364B01cDc963',
+      reserveAddress: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
     },
   },
 })
@@ -233,4 +233,4 @@ export const mUsdcBondingRitual = new StableBond({
 })
 
 
-export default [usdc, mimMaia, usdt, usdcSold, mimMaiaSold, usdtSold, usdcSoldOut, usdtSoldOut, mimMaiaSoldOut, mUsdcBondingRitual]
+export default [usdc, mimMaia, usdt, weth, usdcSold, mimMaiaSold, usdtSold, usdcSoldOut, usdtSoldOut, mimMaiaSoldOut, mUsdcBondingRitual]

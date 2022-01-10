@@ -36,9 +36,6 @@ function SideBar() {
         if (currentPath.indexOf("mints") >= 0 && page === "mints") {
             return true;
         }
-        // if (currentPath.indexOf("presale") >= 0 && page === "presale") {
-        //     return true;
-        // }
         if (currentPath.indexOf("calculator") >= 0 && page === "calculator") {
             return true;
         }
@@ -54,7 +51,7 @@ function SideBar() {
 
                 {address && (
                     <div className="wallet-link">
-                        <Link href={`https://cchain.explorer.matic.network/address/${address}`} target="_blank">
+                        <Link href={`https://andromeda-explorer.metis.io/address/${address}`} target="_blank">
                             <p>{shorten(address)}</p>
                         </Link>
                     </div>

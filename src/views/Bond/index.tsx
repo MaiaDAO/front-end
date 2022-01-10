@@ -12,6 +12,7 @@ import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
 import { IAllBondData } from "../../hooks/bonds";
 import classnames from "classnames";
+import { usdt, usdc } from "../../helpers/bond/index";
 
 interface IBondProps {
     bond: IAllBondData;
@@ -63,7 +64,7 @@ function Bond({ bond }: IBondProps) {
                                 <div className="bond-price-data">
                                     <p className="bond-price-data-title">Mint Price</p>
                                     <p className="bond-price-data-value">
-                                        {isBondLoading || bond.isClosed ? <Skeleton /> : bond.isLP ? `$${trim(bond.bondPrice, 2)}` : `${trim(bond.bondPrice, 2)} ${bond.displayName}`}
+                                        {isBondLoading || bond.isClosed ? <Skeleton /> : (bond.isLP || (bond.name !== usdc.name && bond.name !== usdt.name)) ? `$${trim(bond.bondPrice, (bond.isLP ? 4 : 2))}` : `${trim(bond.bondPrice, 2)} ${bond.displayName}`}
                                     </p>
                                 </div>
                                 <div className="bond-price-data">

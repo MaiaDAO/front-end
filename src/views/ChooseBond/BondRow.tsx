@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import "./choosebond.scss";
 import { Skeleton } from "@material-ui/lab";
 import { IAllBondData } from "../../hooks/bonds";
-
+import { usdc, usdt } from "src/helpers/bond";
 interface IBondProps {
     bond: IAllBondData;
 }
@@ -59,7 +59,7 @@ export function BondDataCard({ bond }: IBondProps) {
                             <p className="bond-name-title">Price</p>
                             <p className="bond-price bond-name-title">
                                 <>
-                                    {bond.isLP && priceUnits(bond)} {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)} {!bond.isLP && priceUnits(bond)}
+                                    {bond.isLP && priceUnits(bond)} {isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, (bond.isLP || (bond.name !== usdc.name && bond.name !== usdt.name)) ? 4 : 2)} {!bond.isLP && priceUnits(bond)}
                                 </>
                             </p>
                         </div>
@@ -117,7 +117,7 @@ export function BondTableData({ bond }: IBondProps) {
             <TableCell align="center">
                 {!bond.isClosed && <p className="bond-name-title">
                     <>
-                        <span className="currency-icon">{bond.isLP && priceUnits(bond)}</span>{isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, 2)}<span className="currency-icon">{!bond.isLP && priceUnits(bond)}</span>
+                        <span className="currency-icon">{(bond.isLP || (bond.name !== usdc.name && bond.name !== usdt.name)) && priceUnits(bond)}</span>{isBondLoading ? <Skeleton width="50px" /> : trim(bond.bondPrice, (bond.isLP || (bond.name !== usdc.name && bond.name !== usdt.name)) ? 4 : 2)}<span className="currency-icon">{(!bond.isLP && (bond.name === usdc.name || bond.name === usdt.name)) && priceUnits(bond)}</span>
                     </>
                 </p>}
             </TableCell>

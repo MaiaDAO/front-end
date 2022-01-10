@@ -87,7 +87,7 @@ const weth: IToken = {
 
 export const wmetis: IToken = {
     name: "WMETIS",
-    address: "0x75cb093E4D61d2A2e65D8e0BBb01DE8d89b53481",
+    address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
     img: WmaticIcon,
     decimals: 18,
 };

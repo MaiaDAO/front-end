@@ -180,7 +180,7 @@
                         }
                     ],
                     "indexed": false,
-                    "internalType": "struct TimeBondDepository.Terms",
+                    "internalType": "struct MaiaBondDepository.Terms",
                     "name": "terms",
                     "type": "tuple"
                 }
@@ -239,7 +239,7 @@
                         }
                     ],
                     "indexed": false,
-                    "internalType": "struct TimeBondDepository.Adjust",
+                    "internalType": "struct MaiaBondDepository.Adjust",
                     "name": "adjust",
                     "type": "tuple"
                 }
@@ -271,7 +271,7 @@
             "inputs": [
                 {
                     "indexed": false,
-                    "internalType": "enum TimeBondDepository.PARAMETER",
+                    "internalType": "enum MaiaBondDepository.PARAMETER",
                     "name": "param",
                     "type": "uint8"
                 },
@@ -803,7 +803,7 @@
         {
             "inputs": [
                 {
-                    "internalType": "enum TimeBondDepository.PARAMETER",
+                    "internalType": "enum MaiaBondDepository.PARAMETER",
                     "name": "_parameter",
                     "type": "uint8"
                 },

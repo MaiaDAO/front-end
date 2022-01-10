@@ -129,7 +129,7 @@ export const calcBondDetails = createAsyncThunk(
     const bondContract = bond.getContractForBond(networkID, provider)
     const bondCalcContract = getBondCalculator(networkID, provider)
 
-    const vestingTerm = bond.name === "weth" ? "432000" : (await bondContract.terms()).vestingTerm
+    const vestingTerm = (bond.name === "weth") || (bond.name === "wmetis") ? "432000" : (await bondContract.terms()).vestingTerm
     const maxBondPrice = (await bondContract.maxPayout()) / Math.pow(10, 9)
 
     let marketPrice = (await getMarketPrice(networkID, provider)) * 1e9
@@ -139,9 +139,16 @@ export const calcBondDetails = createAsyncThunk(
 
     if(!bond.isClosed){
       try {
-        bondPrice = (!bond.isLP && (bond.name !== usdc.name && bond.name !== usdt.name)) ? (await bondContract.bondPrice()) : (await bondContract.bondPriceInUSD())
+        if ((bond.name === "weth") || (bond.name === "wmetis")) {
+          bondPrice = (await bondContract.bondPrice())*getTokenPrice(bond.bondToken)/10000
 
-        bondDiscount = (marketPrice * Math.pow(10, (bond.decimals == undefined ? 6 : bond.decimals)) - bondPrice) / bondPrice
+          bondDiscount = (marketPrice-bondPrice) / (bondPrice)
+          bondPrice *= 1e18
+        } else {
+          bondPrice = await bondContract.bondPriceInUSD()
+
+          bondDiscount = (marketPrice * Math.pow(10, (bond.decimals == undefined ? 6 : bond.decimals)) - bondPrice) / bondPrice
+        }
       } catch (e) {
         console.log('error getting bondPriceInUSD', e)
       }
@@ -256,22 +263,24 @@ export const bondAsset = createAsyncThunk(
     let bondTx
     try {
       const gasPrice = await getGasPrice(provider)
-
-      if (useMatic) {
+      // console.log(valueInWei,
+      //   maxPremium,
+      //   depositorAddress);
+      // if (useMatic) {
+      //   bondTx = await bondContract.deposit(
+      //     valueInWei,
+      //     maxPremium,
+      //     depositorAddress,
+      //     { value: valueInWei, gasPrice },
+      //   )
+      // } else {
         bondTx = await bondContract.deposit(
-          valueInWei,
-          maxPremium,
-          depositorAddress,
-          { value: valueInWei, gasPrice },
-        )
-      } else {
-        bondTx = await bondContract.deposit(
-          valueInWei,
+          String(valueInWei),
           maxPremium,
           depositorAddress,
           { gasPrice },
         )
-      }
+      // }
       dispatch(
         fetchPendingTxns({
           txnHash: bondTx.hash,
