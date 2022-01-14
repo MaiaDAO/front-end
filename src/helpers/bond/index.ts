@@ -15,11 +15,29 @@ import {
   LpBondContract,
   StableReserveContract,
   LpReserveContract,
+  WmaticBondContract
 } from '../../abi'
 
 
+export const wmetis = new CustomBond({
+  name: 'fixedwmetis',
+  displayName: 'METIS',
+  bondToken: 'METIS',
+  bondIconSvg: WMETISicon,
+  bondContractABI: WmaticBondContract,
+  reserveContractAbi: StableReserveContract,
+  isClosed: true,
+  decimals: 18,
+  networkAddrs: {
+    [Networks.METIS]: {
+      bondAddress: '0xEc69ecD8D6F1301e4bD9dE5a4e91364B01cDc963',
+      reserveAddress: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
+    },
+  },
+})
+
 export const usdc = new StableBond({
-  name: 'musdc',
+  name: 'fixedmusdc',
   displayName: 'm.USDC',
   bondToken: 'USDC',
   bondIconSvg: DaiIcon,
@@ -38,7 +56,7 @@ export const usdc = new StableBond({
 })
 
 export const usdt = new StableBond({
-  name: 'musdt',
+  name: 'fixedmusdt',
   displayName: 'm.USDT',
   bondToken: 'USDT',
   bondIconSvg: USDTIcon,
@@ -57,7 +75,7 @@ export const usdt = new StableBond({
 
 
 export const weth = new CustomBond({
-  name: 'weth',
+  name: 'fixedweth',
   displayName: 'WETH',
   bondToken: 'WETH',
   bondIconSvg: ETHicon,
@@ -73,25 +91,8 @@ export const weth = new CustomBond({
   },
 })
 
-export const wmetis = new CustomBond({
-  name: 'wmetis',
-  displayName: 'METIS',
-  bondToken: 'METIS',
-  bondIconSvg: WMETISicon,
-  bondContractABI: StableBondContract,
-  reserveContractAbi: StableReserveContract,
-  isClosed: false,
-  decimals: 18,
-  networkAddrs: {
-    [Networks.METIS]: {
-      bondAddress: '0xEc69ecD8D6F1301e4bD9dE5a4e91364B01cDc963',
-      reserveAddress: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
-    },
-  },
-})
-
 export const mimMaia = new LPBond({
-  name: 'musdc_maia_lp',
+  name: 'fixedmusdc_maia_lp',
   displayName: 'MAIA-mUSDC LP',
   bondToken: 'MAIA-mUSDC LP',
   bondIconSvg: MaiaMUSDCIcon,

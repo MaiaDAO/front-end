@@ -99,7 +99,6 @@ function ChooseBond() {
                     </Grid>
                 </div>
             )}
-            <br></br>
             <Zoom in={true}>
                 <div className="choose-bond-view-card">
                     <div className="choose-bond-view-card-header">

@@ -139,7 +139,7 @@ export const calcBondDetails = createAsyncThunk(
 
     if(!bond.isClosed){
       try {
-        if ((bond.name === "weth") || (bond.name === "wmetis")) {
+        if ((bond.bondToken === "WETH") || (bond.bondToken === "METIS")) {
           bondPrice = (await bondContract.bondPrice())*getTokenPrice(bond.bondToken)/10000
 
           bondDiscount = (marketPrice-bondPrice) / (bondPrice)
@@ -275,7 +275,7 @@ export const bondAsset = createAsyncThunk(
       //   )
       // } else {
         bondTx = await bondContract.deposit(
-          String(valueInWei),
+          String(Math.trunc(valueInWei)),
           maxPremium,
           depositorAddress,
           { gasPrice },
