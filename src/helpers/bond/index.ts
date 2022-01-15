@@ -215,7 +215,7 @@ export const mimMaiaSoldOut = new LPBond({
     'https://tethys.finance/pool/add?inputCurrency=0xEA32A96608495e54156Ae48931A7c20f0dcc1a21&outputCurrency=0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD',
   isClosed: true,
 })
-
+  
 export const mUsdcBondingRitual = new StableBond({
   name: 'firstmUsdcBondingRitual',
   displayName: 'm.USDC Bonding Ritual',
