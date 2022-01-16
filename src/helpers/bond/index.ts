@@ -7,6 +7,7 @@ import MaiaMUSDCIcon from '../../assets/tokens/MAIA-USDC.png'
 import USDTIcon from '../../assets/tokens/USDT.e.png'
 import ETHicon from '../../assets/tokens/WETH.e.png'
 import WMETISicon from '../../assets/tokens/WMETIS.png'
+import TETHYSicon from '../../assets/tokens/TETHYS.png'
 
 import { getAddresses } from 'src/constants'
 
@@ -18,6 +19,23 @@ import {
   WmaticBondContract
 } from '../../abi'
 
+
+export const tethys = new CustomBond({
+  name: 'tethys',
+  displayName: 'TETHYS',
+  bondToken: 'TETHYS',
+  bondIconSvg: TETHYSicon,
+  bondContractABI: StableBondContract,
+  reserveContractAbi: StableReserveContract,
+  isClosed: false,
+  decimals: 18,
+  networkAddrs: {
+    [Networks.METIS]: {
+      bondAddress: '0x89fEf02c281cD1dcB4371dC9a32931E3Dc8777c9',
+      reserveAddress: '0x69fdb77064ec5c84FA2F21072973eB28441F43F3',
+    },
+  },
+})
 
 export const wmetis = new CustomBond({
   name: 'wmetis',
@@ -307,4 +325,4 @@ export const mUsdcBondingRitual = new StableBond({
 })
 
 
-export default [usdc, mimMaia, usdt, weth, wmetis, usdcFixed, mimMaiaFixed, usdtFixed, wethFixed, usdcSold, mimMaiaSold, usdtSold, usdcSoldOut, usdtSoldOut, mimMaiaSoldOut, mUsdcBondingRitual]
+export default [usdc, mimMaia, usdt, weth, wmetis, tethys, usdcFixed, mimMaiaFixed, usdtFixed, wethFixed, usdcSold, mimMaiaSold, usdtSold, usdcSoldOut, usdtSoldOut, mimMaiaSoldOut, mUsdcBondingRitual]

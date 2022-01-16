@@ -130,7 +130,7 @@ export const calcBondDetails = createAsyncThunk(
     const bondContract = bond.getContractForBond(networkID, provider)
     const bondCalcContract = getBondCalculator(networkID, provider)
 
-    const vestingTerm = (bond.name === "weth") || (bond.name === "wmetis") ? "432000" : (await bondContract.terms()).vestingTerm
+    const vestingTerm = (bond.name === "weth") || (bond.name === "tethys") || (bond.name === "wmetis") ? "432000" : (await bondContract.terms()).vestingTerm
     const maxBondPrice = (await bondContract.maxPayout()) / Math.pow(10, 9)
 
     let marketPrice = (await getMarketPrice(networkID, provider)) * 1e9
@@ -140,7 +140,7 @@ export const calcBondDetails = createAsyncThunk(
 
     if(!bond.isClosed){
       try {
-        if ((bond.bondToken === "WETH") || (bond.bondToken === "METIS")) {
+        if ((bond.bondToken === "WETH") || (bond.bondToken === "METIS")|| (bond.bondToken === "TETHYS")) {
           bondPrice = (await bondContract.bondPrice())*getTokenPrice(bond.bondToken)/10000
 
           bondDiscount = (marketPrice-bondPrice) / (bondPrice)
@@ -255,6 +255,7 @@ export const bondAsset = createAsyncThunk(
     }else{
       valueInWei = Number(value) * 1e6
     }
+    valueInWei = String(BigInt(Math.trunc(valueInWei)));
     const signer = provider.getSigner()
     const bondContract = bond.getContractForBond(networkID, signer)
 
@@ -269,14 +270,14 @@ export const bondAsset = createAsyncThunk(
       //   depositorAddress);
       if (useMetis) {
         bondTx = await bondContract.deposit(
-          String(Math.trunc(valueInWei)),
+          valueInWei,
           maxPremium,
           depositorAddress,
-          { value: String(Math.trunc(valueInWei)) },
+          { value: valueInWei },
         )
       }else{
         bondTx = await bondContract.deposit(
-          String(Math.trunc(valueInWei)),
+          valueInWei,
           maxPremium,
           depositorAddress,
           { gasPrice },

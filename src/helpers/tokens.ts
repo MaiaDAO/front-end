@@ -87,7 +87,14 @@ const weth: IToken = {
 
 export const wmetis: IToken = {
     name: "WMETIS",
-    address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+    address: "0x75cb093E4D61d2A2e65D8e0BBb01DE8d89b53481",
+    img: WmaticIcon,
+    decimals: 18,
+};
+
+export const tethys: IToken = {
+    name: "TETHYS",
+    address: "0x69fdb77064ec5c84FA2F21072973eB28441F43F3",
     img: WmaticIcon,
     decimals: 18,
 };
