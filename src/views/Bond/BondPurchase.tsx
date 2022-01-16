@@ -25,7 +25,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
     const { provider, address, chainID, checkWrongNetwork } = useWeb3Context();
 
     const [quantity, setQuantity] = useState("");
-    const [useMatic, setUseMatic] = useState(false);
+    const [useMetis, setUseMetis] = useState(bond.bondToken === "METIS");
 
     const isBondLoading = useSelector<IReduxState, boolean>(state => state.bonding.loading ?? true);
     const [zapinOpen, setZapinOpen] = useState(false);
@@ -64,7 +64,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                         networkID: chainID,
                         provider,
                         address: recipientAddress || address,
-                        useMatic,
+                        useMetis: useMetis,
                     }),
                 );
                 clearInput();
@@ -84,7 +84,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                     networkID: chainID,
                     provider,
                     address: recipientAddress || address,
-                    useMatic,
+                    useMetis: useMetis,
                 }),
             );
             clearInput();
@@ -100,7 +100,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
     }, [bond.allowance]);
 
     const setMax = () => {
-        let amount: any = Math.min(bond.maxBondPriceToken * 0.9999, useMatic ? bond.maticBalance * 0.99 : bond.balance);
+        let amount: any = Math.min(bond.maxBondPriceToken * 0.9999, useMetis ? bond.maticBalance * 0.99 : bond.balance);
 
         if (amount) {
             amount = trim(amount);
@@ -131,19 +131,19 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
         setZapinOpen(false);
     };
 
-    const displayUnits = useMatic ? "METIS" : bond.displayUnits;
+    const displayUnits = useMetis ? "METIS" : bond.displayUnits;
 
     return (
         <Box display="flex" flexDirection="column">
             <Box display="flex" justifyContent="space-around" flexWrap="wrap">
-                {bond.name === "wmetis" && (
+                {/* {bond.name === "wmetis" && (
                     <FormControl className="ohm-input" variant="outlined" color="primary" fullWidth>
                         <div className="matic-checkbox">
-                            <input type="checkbox" checked={useMatic} onClick={() => setUseMatic(!useMatic)} />
+                            <input type="checkbox" checked={useMetis} onClick={() => setUseMetis(!useMetis)} />
                             <p>Use METIS</p>
                         </div>
                     </FormControl>
-                )}
+                )} */}
                 <FormControl className="bond-input-wrap" variant="outlined" color="primary" fullWidth>
                     <OutlinedInput
                         placeholder="Amount"
@@ -161,7 +161,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                         }
                     />
                 </FormControl>
-                {hasAllowance() || useMatic ? (
+                {hasAllowance() || useMetis ? (
                     <div
                         className="transaction-button bond-approve-btn"
                         onClick={async () => {
@@ -187,7 +187,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                     <p>Zap</p>
                 </div> */}
 
-                {!hasAllowance() && !useMatic && (
+                {!hasAllowance() && !useMetis && (
                     <div className="help-text">
                         <p className="help-text-desc">
                             Note: The "Approve" transaction is only needed when minting for the first maia; subsequent minting only requires you to perform the "Mint" transaction.
@@ -205,7 +205,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
                                 <Skeleton width="100px" />
                             ) : (
                                 <>
-                                    {trim(useMatic ? bond.maticBalance : bond.balance, (bond.isLP ? 18 : ((bond.name !== usdc.name && bond.name !== usdt.name) ? 8: 4)))} {displayUnits}
+                                    {trim(useMetis ? bond.maticBalance : bond.balance, (bond.isLP ? 18 : ((bond.name !== usdc.name && bond.name !== usdt.name) ? 8: 4)))} {displayUnits}
                                 </>
                             )}
                         </p>

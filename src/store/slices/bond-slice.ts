@@ -1,4 +1,4 @@
-import { ethers, constants } from 'ethers'
+import { ethers, constants, Contract } from 'ethers'
 import { getMarketPrice, getTokenPrice } from '../../helpers'
 import { calculateUserBondDetails, getBalances } from './account-slice'
 import { getAddresses } from '../../constants'
@@ -19,6 +19,7 @@ import { messages } from '../../constants/messages'
 import { getGasPrice } from '../../helpers/get-gas-price'
 import { metamaskErrorWrap } from '../../helpers/metamask-error-wrap'
 import { sleep } from '../../helpers'
+import { wMetisTokenContract } from "../../abi"
 
 interface IChangeApproval {
   bond: Bond
@@ -230,7 +231,7 @@ interface IBondAsset {
   networkID: Networks
   provider: StaticJsonRpcProvider | JsonRpcProvider
   slippage: number
-  useMatic: boolean
+  useMetis: boolean
 }
 export const bondAsset = createAsyncThunk(
   'bonding/bondAsset',
@@ -242,7 +243,7 @@ export const bondAsset = createAsyncThunk(
       networkID,
       provider,
       slippage,
-      useMatic,
+      useMetis,
     }: IBondAsset,
     { dispatch },
   ) => {
@@ -266,21 +267,21 @@ export const bondAsset = createAsyncThunk(
       // console.log(valueInWei,
       //   maxPremium,
       //   depositorAddress);
-      // if (useMatic) {
-      //   bondTx = await bondContract.deposit(
-      //     valueInWei,
-      //     maxPremium,
-      //     depositorAddress,
-      //     { value: valueInWei, gasPrice },
-      //   )
-      // } else {
+      if (useMetis) {
+        bondTx = await bondContract.deposit(
+          String(Math.trunc(valueInWei)),
+          maxPremium,
+          depositorAddress,
+          { value: String(Math.trunc(valueInWei)) },
+        )
+      }else{
         bondTx = await bondContract.deposit(
           String(Math.trunc(valueInWei)),
           maxPremium,
           depositorAddress,
           { gasPrice },
         )
-      // }
+      }
       dispatch(
         fetchPendingTxns({
           txnHash: bondTx.hash,

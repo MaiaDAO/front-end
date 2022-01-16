@@ -20,30 +20,103 @@ import {
 
 
 export const wmetis = new CustomBond({
-  name: 'fixedwmetis',
+  name: 'wmetis',
   displayName: 'METIS',
   bondToken: 'METIS',
   bondIconSvg: WMETISicon,
   bondContractABI: WmaticBondContract,
   reserveContractAbi: StableReserveContract,
-  isClosed: true,
+  isClosed: false,
   decimals: 18,
   networkAddrs: {
     [Networks.METIS]: {
-      bondAddress: '0xEc69ecD8D6F1301e4bD9dE5a4e91364B01cDc963',
-      reserveAddress: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
+      bondAddress: '0x8037603aa8a69b2B02615048c06f600255c7F30A',
+      reserveAddress: '0x75cb093E4D61d2A2e65D8e0BBb01DE8d89b53481',
     },
   },
 })
 
 export const usdc = new StableBond({
-  name: 'fixedmusdc',
+  name: 'musdc',
   displayName: 'm.USDC',
   bondToken: 'USDC',
   bondIconSvg: DaiIcon,
   bondContractABI: StableBondContract,
   reserveContractAbi: StableReserveContract,
   isClosed: false,
+  decimals: 6,
+  networkAddrs: {
+    [Networks.METIS]: {
+      bondAddress: '0xEA0415b511A1199F7E0822B8641Ab49A44c74A1d',
+      reserveAddress: '0xEA32A96608495e54156Ae48931A7c20f0dcc1a21',
+    },
+
+  },
+
+})
+
+export const usdt = new StableBond({
+  name: 'musdt',
+  displayName: 'm.USDT',
+  bondToken: 'USDT',
+  bondIconSvg: USDTIcon,
+  bondContractABI: StableBondContract,
+  reserveContractAbi: StableReserveContract,
+  isClosed: false,
+  decimals: 6,
+  networkAddrs: {
+    [Networks.METIS]: {
+      bondAddress: '0x3212c7F0D2f07707786DFE5e0A64AEffB4f072AC',
+      reserveAddress: '0xbB06DCA3AE6887fAbF931640f67cab3e3a16F4dC',
+    },
+  },
+})
+
+
+
+export const weth = new CustomBond({
+  name: 'weth',
+  displayName: 'WETH',
+  bondToken: 'WETH',
+  bondIconSvg: ETHicon,
+  bondContractABI: StableBondContract,
+  reserveContractAbi: StableReserveContract,
+  isClosed: false,
+  decimals: 18,
+  networkAddrs: {
+    [Networks.METIS]: {
+      bondAddress: '0x83DE931543bA68fE9c2684ab350985F2C10e501a',
+      reserveAddress: '0x420000000000000000000000000000000000000A',
+    },
+  },
+})
+
+export const mimMaia = new LPBond({
+  name: 'musdc_maia_lp',
+  displayName: 'MAIA-mUSDC LP',
+  bondToken: 'MAIA-mUSDC LP',
+  bondIconSvg: MaiaMUSDCIcon,
+  bondContractABI: LpBondContract,
+  reserveContractAbi: LpReserveContract,
+  isClosed: false,
+  networkAddrs: {
+    [Networks.METIS]: {
+      bondAddress: '0xd211a32199F9A36A9A75a506EE17c4808f9353F1',
+      reserveAddress: '0x82758824b93F2648bCC9387878CF443C9c0cB768',
+    },
+  },
+  lpUrl:
+    'https://tethys.finance/pool/add?inputCurrency=0xEA32A96608495e54156Ae48931A7c20f0dcc1a21&outputCurrency=0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD',
+})
+
+export const usdcFixed = new StableBond({
+  name: 'fixedmusdc',
+  displayName: 'm.USDC Fixed',
+  bondToken: 'USDC',
+  bondIconSvg: DaiIcon,
+  bondContractABI: StableBondContract,
+  reserveContractAbi: StableReserveContract,
+  isClosed: true,
   decimals: 6,
   networkAddrs: {
     [Networks.METIS]: {
@@ -55,14 +128,14 @@ export const usdc = new StableBond({
 
 })
 
-export const usdt = new StableBond({
+export const usdtFixed = new StableBond({
   name: 'fixedmusdt',
-  displayName: 'm.USDT',
+  displayName: 'm.USDT Fixed',
   bondToken: 'USDT',
   bondIconSvg: USDTIcon,
   bondContractABI: StableBondContract,
   reserveContractAbi: StableReserveContract,
-  isClosed: false,
+  isClosed: true,
   decimals: 6,
   networkAddrs: {
     [Networks.METIS]: {
@@ -74,14 +147,14 @@ export const usdt = new StableBond({
 
 
 
-export const weth = new CustomBond({
+export const wethFixed = new CustomBond({
   name: 'fixedweth',
-  displayName: 'WETH',
+  displayName: 'WETH Fixed',
   bondToken: 'WETH',
   bondIconSvg: ETHicon,
   bondContractABI: StableBondContract,
   reserveContractAbi: StableReserveContract,
-  isClosed: false,
+  isClosed: true,
   decimals: 18,
   networkAddrs: {
     [Networks.METIS]: {
@@ -91,14 +164,14 @@ export const weth = new CustomBond({
   },
 })
 
-export const mimMaia = new LPBond({
+export const mimMaiaFixed = new LPBond({
   name: 'fixedmusdc_maia_lp',
-  displayName: 'MAIA-mUSDC LP',
+  displayName: 'MAIA-mUSDC LP Fixed',
   bondToken: 'MAIA-mUSDC LP',
   bondIconSvg: MaiaMUSDCIcon,
   bondContractABI: LpBondContract,
   reserveContractAbi: LpReserveContract,
-  isClosed: false,
+  isClosed: true,
   networkAddrs: {
     [Networks.METIS]: {
       bondAddress: '0x5c89dcfb4b319b3878E2CfBfFEA75e681C24C2B6',
@@ -234,4 +307,4 @@ export const mUsdcBondingRitual = new StableBond({
 })
 
 
-export default [usdc, mimMaia, usdt, weth, usdcSold, mimMaiaSold, usdtSold, usdcSoldOut, usdtSoldOut, mimMaiaSoldOut, mUsdcBondingRitual]
+export default [usdc, mimMaia, usdt, weth, wmetis, usdcFixed, mimMaiaFixed, usdtFixed, wethFixed, usdcSold, mimMaiaSold, usdtSold, usdcSoldOut, usdtSoldOut, mimMaiaSoldOut, mUsdcBondingRitual]

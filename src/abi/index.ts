@@ -8,6 +8,7 @@ export { abi as LpReserveContract } from "./reserves/LpContract.json";
 export { abi as sMaiaTokenContract } from "./tokens/sMaiaContract.json";
 export { abi as MaiaTokenContract } from "./tokens/MaiaContract.json";
 export { abi as MimTokenContract } from "./tokens/MimContract.json";
+export { abi as wMetisTokenContract } from "./tokens/WMetisContract.json";
 
 export { abi as BondingCalcContract } from "./BondingCalcContract.json";
 export { abi as StakingContract } from "./StakingContract.json";
