@@ -325,4 +325,4 @@ export const mUsdcBondingRitual = new StableBond({
 })
 
 
-export default [usdc, mimMaia, usdt, weth, wmetis, tethys, usdcFixed, mimMaiaFixed, usdtFixed, wethFixed, usdcSold, mimMaiaSold, usdtSold, usdcSoldOut, usdtSoldOut, mimMaiaSoldOut, mUsdcBondingRitual]
+export default [usdc, mimMaia, usdt, weth, wmetis, usdcFixed, mimMaiaFixed, usdtFixed, wethFixed, usdcSold, mimMaiaSold, usdtSold, usdcSoldOut, usdtSoldOut, mimMaiaSoldOut, mUsdcBondingRitual]
