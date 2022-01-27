@@ -205,8 +205,6 @@
   }
 
   .dapp-menu-doc-link {
-    --c: goldenrod;
-    color: var(--c);
     border: 0.1em solid var(--c);
     border-radius: 1em;
     width: 15em;
@@ -218,6 +216,7 @@
     text-align: center;
 
     margin-top: auto;
+    margin: auto;
 
     a {
       display: flex;

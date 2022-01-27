@@ -27,6 +27,13 @@ function Main() {
                                 </Link>
                             </div>
                         </li>
+                        <li>
+                            <div>
+                                <Link href="https://docs.maiadao.xyz/" target="_blank" rel="noreferrer">
+                                    <p>Documentation</p>
+                                </Link>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
                 {/* <Link href="http://app.maiadao.xyz/#/" target="_blank" rel="noreferrer">

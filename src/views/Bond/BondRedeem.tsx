@@ -10,7 +10,6 @@ import { IAllBondData } from "../../hooks/bonds";
 import { IUserBondDetails } from "../../store/slices/account-slice";
 import { messages } from "../../constants/messages";
 import { warning } from "../../store/slices/messages-slice";
-import { mUsdcBondingRitual } from "../../helpers/bond/index"
 
 interface IBondRedeem {
     bond: IAllBondData;
@@ -72,20 +71,15 @@ function BondRedeem({ bond }: IBondRedeem) {
                 >
                     <p>{txnButtonText(pendingTransactions, "redeem_bond_" + bond.name, "Claim")}</p>
                 </div>
-                {bond.name == mUsdcBondingRitual.name ? 
-                    <p className="bond-balance-title">$MAIA can only be redeemed after Friday, January 14, 2022 4:36 AM GMT</p>
-                : (
-                    <div
-                        className="transaction-button bond-approve-btn"
-                        onClick={() => {
-                            if (isPendingTxn(pendingTransactions, "redeem_bond_" + bond.name + "_autostake")) return;
-                            onRedeem(true);
-                        }}
-                    >
-                        <p>{txnButtonText(pendingTransactions, "redeem_bond_" + bond.name + "_autostake", "Claim and Autostake")}</p>
-                    </div> 
-                )}
-               
+                <div
+                    className="transaction-button bond-approve-btn"
+                    onClick={() => {
+                        if (isPendingTxn(pendingTransactions, "redeem_bond_" + bond.name + "_autostake")) return;
+                        onRedeem(true);
+                    }}
+                >
+                    <p>{txnButtonText(pendingTransactions, "redeem_bond_" + bond.name + "_autostake", "Claim and Autostake")}</p>
+                </div> 
             </Box>
 
             <Slide direction="right" in={true} mountOnEnter unmountOnExit {...{ timeout: 533 }}>

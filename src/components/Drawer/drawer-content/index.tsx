@@ -131,15 +131,11 @@ function SideBar() {
 
                 </div>
             </div>
-            {/* <div className="dapp-menu-doc-link">
-                <Link href="/" target="_blank">
-                    <img alt="" src={DocsIcon} />
-                    <p>Docs</p>
+            <div className="dapp-menu-doc-link">
+                <Link href="https://docs.maiadao.xyz/" target="_blank">
+                    <p>Documentation</p>
                 </Link>
-                <Link href="/" target="_blank">
-                    <p>Legacy website</p>
-                </Link>
-            </div> */}
+            </div>
             <Social />
         </div>
     );
