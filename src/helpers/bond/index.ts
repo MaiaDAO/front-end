@@ -333,4 +333,4 @@ export const mimMaia = new LPBond({
 // })
 
 
-export default [usdc, mimMaia, usdt, weth, wmetis, busd]
+export default [usdc, mimMaia, usdt, weth, wmetis]
