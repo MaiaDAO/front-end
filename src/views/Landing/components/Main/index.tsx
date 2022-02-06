@@ -34,6 +34,13 @@ function Main() {
                                 </Link>
                             </div>
                         </li>
+                        <li className="hermes-btn">
+                            <div>
+                                <Link href="https://hermes.maiadao.xyz/" target="_blank" rel="noreferrer">
+                                    <p>Hermes</p>
+                                </Link>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
                 {/* <Link href="http://app.maiadao.xyz/#/" target="_blank" rel="noreferrer">

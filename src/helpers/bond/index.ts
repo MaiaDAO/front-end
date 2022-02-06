@@ -8,6 +8,7 @@ import USDTIcon from '../../assets/tokens/USDT.e.png'
 import ETHicon from '../../assets/tokens/WETH.e.png'
 import WMETISicon from '../../assets/tokens/WMETIS.png'
 import TETHYSicon from '../../assets/tokens/TETHYS.png'
+import BusdIcon from '../../assets/tokens/busd.png'
 
 import { getAddresses } from 'src/constants'
 
@@ -33,6 +34,23 @@ export const tethys = new CustomBond({
     [Networks.METIS]: {
       bondAddress: '0x89fEf02c281cD1dcB4371dC9a32931E3Dc8777c9',
       reserveAddress: '0x69fdb77064ec5c84FA2F21072973eB28441F43F3',
+    },
+  },
+})
+
+export const busd = new CustomBond({
+  name: 'busd',
+  displayName: 'BUSD',
+  bondToken: 'BUSD',
+  bondIconSvg: BusdIcon,
+  bondContractABI: StableBondContract,
+  reserveContractAbi: StableReserveContract,
+  isClosed: false,
+  decimals: 18,
+  networkAddrs: {
+    [Networks.METIS]: {
+      bondAddress: '0xB9791D1D5C33F79CA97f72fCd4c707DA589EE28f',
+      reserveAddress: '0x12D84f1CFe870cA9C9dF9785f8954341d7fbb249',
     },
   },
 })
@@ -296,7 +314,7 @@ export const mimMaia = new LPBond({
 //     'https://tethys.finance/pool/add?inputCurrency=0xEA32A96608495e54156Ae48931A7c20f0dcc1a21&outputCurrency=0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD',
 //   isClosed: true,
 // })
-  
+
 // export const mUsdcBondingRitual = new StableBond({
 //   name: 'firstmUsdcBondingRitual',
 //   displayName: 'm.USDC Bonding Ritual',
@@ -315,4 +333,4 @@ export const mimMaia = new LPBond({
 // })
 
 
-export default [usdc, mimMaia, usdt, weth, wmetis]
+export default [usdc, mimMaia, usdt, weth, wmetis, busd]
