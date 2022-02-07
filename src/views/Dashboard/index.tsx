@@ -19,6 +19,14 @@ function Dashboard() {
                     <Grid container spacing={4}>
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
+                                <p className="card-title">Ongoing Maintenance</p>
+                                <p className="card-value">
+                                    Values shown are inaccurate
+                                </p>
+                            </div>
+                        </Grid>
+                        <Grid item lg={6} md={6} sm={6} xs={12}>
+                            <div className="dashboard-card">
                                 <p className="card-title">MAIA Price</p>
                                 <p className="card-value">{isAppLoading ? <Skeleton width="100px" /> : `$${trim(app.marketPrice, 2)}`}</p>
                             </div>
