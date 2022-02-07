@@ -116,6 +116,13 @@ function SideBar() {
                             </Link>
                         ))}
                     </div>
+
+                    <Link className="button-dapp-menu" href="https://hermes.maiadao.xyz/" target="_blank">
+                        <div className="dapp-menu-item">
+                            <p>Hermes</p>
+                        </div>
+                    </Link>
+
                     <Link
                         component={NavLink}
                         to="/calculator"
@@ -128,7 +135,6 @@ function SideBar() {
                             <p>Calculator</p>
                         </div>
                     </Link>
-
                 </div>
             </div>
             <div className="dapp-menu-doc-link">

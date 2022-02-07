@@ -251,9 +251,9 @@ export const bondAsset = createAsyncThunk(
     const acceptedSlippage = slippage / 100 || 0.005
     var valueInWei;
     if(bond.isLP || (bond.name !== usdc.name && bond.name !== usdt.name)){
-      valueInWei = Number(value) * 1e18
+      valueInWei = Math.trunc(Number(value) * 1e18)
     }else{
-      valueInWei = Number(value) * 1e6
+      valueInWei = Math.trunc(Number(value) * 1e6)
     }
     valueInWei = String(BigInt(Math.trunc(valueInWei)));
     const signer = provider.getSigner()
