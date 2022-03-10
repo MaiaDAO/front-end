@@ -21,7 +21,7 @@ function Dashboard() {
                             <div className="dashboard-card">
                                 <p className="card-title">Ongoing Maintenance</p>
                                 <p className="card-value">
-                                    Values shown are inaccurate
+                                    Values shown are inaccurate (*)
                                 </p>
                             </div>
                         </Grid>
@@ -105,7 +105,7 @@ function Dashboard() {
 
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
-                                <p className="card-title">Treasury Balance</p>
+                                <p className="card-title">Treasury Balance *</p>
                                 <p className="card-value">
                                     {isAppLoading ? (
                                         <Skeleton width="250px" />
@@ -124,7 +124,7 @@ function Dashboard() {
 
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
-                                <p className="card-title">Backing per $MAIA</p>
+                                <p className="card-title">Backing per $MAIA *</p>
                                 <p className="card-value">
                                     {isAppLoading ? (
                                         <Skeleton width="250px" />
