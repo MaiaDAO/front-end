@@ -117,7 +117,7 @@ function SideBar() {
                         ))}
                     </div>
 
-                    <Link className="button-dapp-menu" href="https://hermes.maiadao.xyz/" target="_blank">
+                    <Link className="button-dapp-menu" href="https://hermes.maiadao.io/" target="_blank">
                         <div className="dapp-menu-item">
                             <p>Hermes</p>
                         </div>
