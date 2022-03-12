@@ -7,7 +7,7 @@ function Main() {
     return (
         <div className="landing-main">
             <div className="landing-main-title-wrap">
-                <Link href="https://app.maiadao.xyz/#/dashboard" target="_blank">
+                <Link href="https://app.maiadao.io/#/dashboard" target="_blank">
                     <img alt="" src={MaiaIcon} />
                 </Link>
                 <p>Maia DAO</p>
@@ -22,7 +22,7 @@ function Main() {
                     <ul>
                         <li>
                             <div>
-                                <Link href="http://app.maiadao.xyz/#/dashboard" target="_blank" rel="noreferrer">
+                                <Link href="http://app.maiadao.io/#/dashboard" target="_blank" rel="noreferrer">
                                     <p>ENTER APP</p>
                                 </Link>
                             </div>
