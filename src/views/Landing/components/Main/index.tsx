@@ -36,7 +36,7 @@ function Main() {
                         </li>
                         <li className="hermes-btn">
                             <div>
-                                <Link href="https://hermes.maiadao.xyz/" target="_blank" rel="noreferrer">
+                                <Link href="https://hermes.maiadao.io/" target="_blank" rel="noreferrer">
                                     <p>Hermes</p>
                                 </Link>
                             </div>
