@@ -45,7 +45,7 @@ function SideBar() {
     return (
         <div className="dapp-sidebar">
             <div className="branding-header">
-                <Link href="https://maiadao.xyz" target="_blank">
+                <Link href="https://maiadao.io" target="_blank">
                     <img alt="" src={MaiaIcon} />
                 </Link>
 
