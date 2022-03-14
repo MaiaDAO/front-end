@@ -124,14 +124,14 @@ export const weth = new CustomBond({
 })
 
 export const mimMaia = new LPBond({
-  name: 'musdc_maia_lp',
-  displayName: 'MAIA-mUSDC LP',
-  bondToken: 'MAIA-mUSDC LP',
-  bondIconSvg: MaiaMUSDCIcon,
-  bondContractABI: LpBondContract,
-  reserveContractAbi: LpReserveContract,
-  isClosed: false,
-  networkAddrs: {
+ name: 'musdc_maia_lp',
+ displayName: 'MAIA-mUSDC LP',
+ bondToken: 'MAIA-mUSDC LP',
+ bondIconSvg: MaiaMUSDCIcon,
+ bondContractABI: LpBondContract,
+ reserveContractAbi: LpReserveContract,
+ isClosed: true,
+ networkAddrs: {
     [Networks.METIS]: {
       bondAddress: '0xd211a32199F9A36A9A75a506EE17c4808f9353F1',
       reserveAddress: '0x82758824b93F2648bCC9387878CF443C9c0cB768',
@@ -333,4 +333,4 @@ export const mimMaia = new LPBond({
 // })
 
 
-export default [usdc, mimMaia, usdt, weth, wmetis, busd]
+export default [usdc, usdt, weth, wmetis,mimMaia, busd]
