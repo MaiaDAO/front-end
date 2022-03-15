@@ -130,7 +130,7 @@ export const mimMaia = new LPBond({
  bondIconSvg: MaiaMUSDCIcon,
  bondContractABI: LpBondContract,
  reserveContractAbi: LpReserveContract,
- isClosed: true,
+ isClosed: false,
  networkAddrs: {
     [Networks.METIS]: {
       bondAddress: '0xd211a32199F9A36A9A75a506EE17c4808f9353F1',
