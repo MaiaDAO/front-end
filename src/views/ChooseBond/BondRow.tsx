@@ -24,8 +24,8 @@ export function BondDataCard({ bond }: IBondProps) {
                                 <p className="bond-name-title-sold-out">{bond.displayName}</p>
                                 {bond.isLP && (
                                     <div>
-                                        <Link href={bond.lpUrl} target="_blank">
-                                            <p className="bond-name-title">Add Liquidity</p>
+                                        <Link href={"https://app.maiadao.io/#/mints"} target="_blank">
+                                            <p className="bond-name-title">Bond Closed</p>
                                         </Link>
                                     </div>
                                 )}
@@ -48,8 +48,8 @@ export function BondDataCard({ bond }: IBondProps) {
                                 <p className="bond-name-title">{bond.displayName}</p>
                                 {bond.isLP && (
                                     <div>
-                                        <Link href={bond.lpUrl} target="_blank">
-                                            <p className="bond-name-title">Add Liquidity</p>
+                                        <Link href={"https://app.maiadao.io/#/mints"} target="_blank">
+                                            <p className="bond-name-title">Bond Closed</p>
                                         </Link>
                                     </div>
                                 )}
