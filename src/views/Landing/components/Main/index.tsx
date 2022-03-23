@@ -14,8 +14,8 @@ function Main() {
                 <p></p>
             </div>
             <div className="landing-main-help-text-wrap">
-                <p>The first</p>
-                <p>Community owned decentralized reserve currency of Metis</p>
+                <p>Join the Polis</p>
+                {/* <p>Community owned decentralized reserve currency of Metis</p> */}
             </div>
             <div className="landing-main-btns-wrap">
                 <nav>

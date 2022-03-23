@@ -1,14 +1,16 @@
 .connect-button {
-  background: #505048;
-  background-color: transparentize($color: #4a4835e0, $amount: 0);
-  box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
+  background: #688bd18f;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.9px);
+  -webkit-backdrop-filter: blur(8.9px);
   border-radius: 10px;
   padding: 9px 20px;
   cursor: pointer;
 
-  color: rgb(214, 159, 231);
-  border: 0.07em solid;
-  border-radius: 1em;
+  // color: white;
+  // border: 0.03em solid;
+  // border-radius: 1em;
   width: auto;
   height: auto;
 
@@ -26,6 +28,6 @@
     font-family: Montserrat SemiBold;
     font-weight: 600;
     font-size: 18px;
-    color: rgb(241, 222, 247);
+    color: rgb(252, 252, 252);
   }
 }

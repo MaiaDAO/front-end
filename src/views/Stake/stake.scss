@@ -10,17 +10,27 @@
     z-index: 2;
 
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      background: #505048;
-      background-color: transparentize($color: #4a4835bf, $amount: 0);
+      // background: #505048;
+      // background-color: transparentize($color: #4a4835bf, $amount: 0);
+      background: #3d578d80;
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8.9px);
+      -webkit-backdrop-filter: blur(8.9px);
     }
 
     /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
     @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-      background: #505048;
-      background-color: transparentize($color: #4a4835bf, $amount: 0);
+      // background: #505048;
+      // background-color: transparentize($color: #4a4835bf, $amount: 0);
+      background: #3d578d80;
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8.9px);
+      -webkit-backdrop-filter: blur(8.9px);
     }
 
-    --c:  rgb(214, 159, 231);
+    --c: rgb(241, 241, 241);
     color: var(--c);
 
     border: 0.15em --c solid;
@@ -83,7 +93,7 @@
           line-height: 29px;
           word-break: break-all;
           white-space: normal;
-          color: rgb(241, 222, 247);
+          color: rgb(246, 243, 247);
         }
       }
     }
@@ -93,9 +103,16 @@
         text-align: center;
 
         .stake-card-wallet-connect-btn {
-          background: rgb(241, 222, 247);
-          box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
+          // background: #3d578d80;
           border-radius: 10px;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(8.9px);
+          -webkit-backdrop-filter: blur(8.9px);
+          background-color: transparentize($color: #f1def7, $amount: 0.3);
+
+          // background: #f1def7;
+          // box-shadow: 0px 0px 10px rgba(44, 39, 109, 0.1);
+          // border-radius: 10px;
           padding: 14px 58px;
           cursor: pointer;
           margin: auto;
@@ -166,13 +183,13 @@
 
           .stake-card-action-input {
 
-            color:  rgb(214, 159, 231);
-            border: 0.1em solid;
+            // color: rgb(214, 159, 231);
+            // border: 0.1em solid;
             border-radius: 1.3em;
             width: 90%;
 
             background: rgba(255, 255, 255, 0.2);
-            border: 1px solid  rgb(214, 159, 231);
+            // border: 1px solid rgb(214, 159, 231);
             border-radius: 10px;
             outline: none;
 
@@ -204,14 +221,14 @@
           .stake-card-tab-panel {
             min-width: 215px;
             margin-left: 10px;
-            color: rgb(214, 159, 231);
+            // color: rgb(214, 159, 231);
 
-            border: 0.1em solid;
+            // border: 0.1em solid;
             border-radius: 1.3em;
 
             .stake-card-tab-panel-btn {
-              background: rgba(31, 28, 28, 0.2);
-              border-radius: 10px;
+              background: #688bd18f;
+              border-radius: 15px;
               padding: 14px 0px;
               cursor: pointer;
               text-align: center;

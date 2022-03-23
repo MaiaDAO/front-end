@@ -18,7 +18,7 @@
             font-size: 70px;
             letter-spacing: 2px;
             word-spacing: 5px;
-            color: rgb(241, 222, 247);
+            color: white;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             padding-bottom: 20px;
         }
@@ -40,8 +40,7 @@
             font-size: 22px;
             letter-spacing: 1.4px;
             word-spacing: 4px;
-            color: rgb(241, 222, 247);
-
+            color: white;
         }
     }
 
@@ -60,8 +59,8 @@
         }
 
         nav ul li {
-            background: #505048;
-            background-color: transparentize($color: #4a4835bf, $amount: 0);
+            background: #7874bd;
+            background-color: transparentize($color: #6f6bbb, $amount: 0);
             --c: rgb(160, 145, 81);
             color: var(--c);
             font-size: 16px;
@@ -90,7 +89,7 @@
         }
 
         nav ul li p {
-            color: rgb(241, 222, 247);
+            color: white;
             font-family: Montserrat Medium;
             letter-spacing: 1.4px;
             word-spacing: 4px;

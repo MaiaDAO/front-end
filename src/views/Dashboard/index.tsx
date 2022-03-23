@@ -5,6 +5,7 @@ import "./dashboard.scss";
 import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
 import { IAppSlice } from "../../store/slices/app-slice";
+// import QuestionHelper from "src/components/QuestionHelper";
 
 function Dashboard() {
     const isAppLoading = useSelector<IReduxState, boolean>(state => state.app.loading);
@@ -17,14 +18,6 @@ function Dashboard() {
             <div className="dashboard-infos-wrap">
                 <Zoom in={true}>
                     <Grid container spacing={4}>
-                        <Grid item lg={6} md={6} sm={6} xs={12}>
-                            <div className="dashboard-card">
-                                <p className="card-title">Ongoing Maintenance</p>
-                                <p className="card-value">
-                                    Values shown are inaccurate (*)
-                                </p>
-                            </div>
-                        </Grid>
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
                                 <p className="card-title">MAIA Price</p>
@@ -105,7 +98,13 @@ function Dashboard() {
 
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
-                                <p className="card-title">Treasury Balance *</p>
+                                {/* <div className="treasury-helper">
+                                    <QuestionHelper
+                                        text={`vAMM ETH/METIS -> 315 WETH and 6 000 METIS \n vAMM ETH/m.USDC -> 75 WETH and 235 387 m.USDC \n vAMM WMETIS/m.USDC -> ~84k m.USDC and ~570 WMETIS`}
+                                    />
+                                </div> */}
+
+                                <p className="card-title">Treasury Balance</p>
                                 <p className="card-value">
                                     {isAppLoading ? (
                                         <Skeleton width="250px" />
@@ -121,10 +120,9 @@ function Dashboard() {
                             </div>
                         </Grid>
 
-
                         <Grid item lg={6} md={6} sm={6} xs={12}>
                             <div className="dashboard-card">
-                                <p className="card-title">Backing per $MAIA *</p>
+                                <p className="card-title">Backing per $MAIA</p>
                                 <p className="card-value">
                                     {isAppLoading ? (
                                         <Skeleton width="250px" />

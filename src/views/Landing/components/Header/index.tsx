@@ -42,15 +42,15 @@ function Header() {
                                         <p>Discord</p>
                                     </Link>
                                     <Link className="tooltip-item" href="https://t.me/maiadao" target="_blank">
-                                        <img src={Telegram} width="25" height="25"/>
+                                        <img src={Telegram} alt="telegram logo" width="25" height="25" />
                                         <p>Telegram</p>
                                     </Link>
                                     <Link className="tooltip-item" href="https://dexscreener.com/metis/0x82758824b93f2648bcc9387878cf443c9c0cb768" target="_blank">
-                                        <img src={DexScreener} width="25" height="25"/>
+                                        <img src={DexScreener} width="25" alt="dexscreener logo" height="25" />
                                         <p>Dex Screener</p>
                                     </Link>
                                     <Link className="tooltip-item" href="https://medium.com/@maiaDAO/" target="_blank">
-                                        <img src={Medium} width="25" height="25"/>
+                                        <img src={Medium} width="25" height="25" alt="medium logo" />
                                         <p>Medium</p>
                                     </Link>
                                 </div>

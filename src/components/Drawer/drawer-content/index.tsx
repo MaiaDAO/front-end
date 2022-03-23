@@ -1,22 +1,22 @@
 import { useCallback, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Social from "./social";
-import StakeIcon from "../../../assets/icons/stake.svg";
-import CalculatorIcon from "../../../assets/icons/calculator.svg";
+// import StakeIcon from "../../../assets/icons/stake.svg";
+// import CalculatorIcon from "../../../assets/icons/calculator.svg";
 
-import MintIcon from "../../../assets/icons/mint.svg";
-import PresaleIcon from "../../../assets/icons/presale.svg";
-import BondIcon from "../../../assets/icons/bond.svg";
-import WonderlandIcon from "../../../assets/icons/maia.png";
-import DashboardIcon from "../../../assets/icons/dashboard.svg";
+// import MintIcon from "../../../assets/icons/mint.svg";
+// import PresaleIcon from "../../../assets/icons/presale.svg";
+// import BondIcon from "../../../assets/icons/bond.svg";
+// import WonderlandIcon from "../../../assets/icons/maia.png";
+// import DashboardIcon from "../../../assets/icons/dashboard.svg";
 import { trim, shorten } from "../../../helpers";
 import { useAddress } from "../../../hooks";
 import useBonds from "../../../hooks/bonds";
 import { Link } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import "./drawer-content.scss";
-import DocsIcon from "../../../assets/icons/docs.svg";
-import BrowserIcon from "../../../assets/icons/browser.png";
+// import DocsIcon from "../../../assets/icons/docs.svg";
+// import BrowserIcon from "../../../assets/icons/browser.png";
 import MaiaIcon from "../../../assets/icons/whiteicon.png";
 import classnames from "classnames";
 
@@ -51,7 +51,7 @@ function SideBar() {
 
                 {address && (
                     <div className="wallet-link">
-                        <Link href={`https://andromeda-explorer.metis.io/address/${address}`} target="_blank">
+                        <Link href={`https://andromeda-explorer.metis.io/address/${address}`}>
                             <p>{shorten(address)}</p>
                         </Link>
                     </div>
@@ -84,7 +84,7 @@ function SideBar() {
                         <div className="dapp-menu-item">
                             <p>Stake</p>
                         </div>
-                    </Link> 
+                    </Link>
 
                     <Link
                         component={NavLink}
@@ -103,18 +103,22 @@ function SideBar() {
 
                     <div className="bond-discounts">
                         <p>Mint discounts</p>
-                        {bonds.map((bond, i) => (bond.isClosed ?  "" :
-                            <Link component={NavLink} to={`/mints/${bond.name}`} key={i} className={"bond"}>
-                                {!bond.bondDiscount ? (
-                                    <Skeleton variant="text" width={"150px"} />
-                                ) : (
-                                    <p>
-                                        {bond.displayName}
-                                        <span className="bond-pair-roi">{bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%</span>
-                                    </p>
-                                )}
-                            </Link>
-                        ))}
+                        {bonds.map((bond, i) =>
+                            bond.isClosed ? (
+                                ""
+                            ) : (
+                                <Link component={NavLink} to={`/mints/${bond.name}`} key={i} className={"bond"}>
+                                    {!bond.bondDiscount ? (
+                                        <Skeleton variant="text" width={"150px"} />
+                                    ) : (
+                                        <p>
+                                            {bond.displayName}
+                                            <span className="bond-pair-roi">{bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%</span>
+                                        </p>
+                                    )}
+                                </Link>
+                            ),
+                        )}
                     </div>
 
                     <Link className="button-dapp-menu" href="https://hermes.maiadao.io/" target="_blank">

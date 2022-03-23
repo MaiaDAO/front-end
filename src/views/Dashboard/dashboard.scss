@@ -21,7 +21,7 @@
       flex-direction: column;
       word-break: break-all;
 
-       color: rgb(214, 159, 231);
+      // color: rgb(214, 159, 231);
       color: transparent;
       border: 0.1em solid;
       border-radius: 1.5em;
@@ -33,14 +33,28 @@
       z-index: 2;
 
       @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-        background: #505048;
-        background-color: transparentize($color: #4a4835bf, $amount: 0);
+        // background: #577590;
+        // background-color: transparentize($color: #3d578d, $amount: 0.7);
+
+        /* From https://css.glass */
+        background: rgba(69, 102, 174, 0.582);
+        border-radius: 16px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6.4px);
+        -webkit-backdrop-filter: blur(6.4px);
       }
 
       /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
       @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-        background: #505048;
-        background-color: transparentize($color: #4a4835bf, $amount: 0);
+        // background: #577590;
+        // background-color: transparentize($color: #3d578d, $amount: 0.7);
+
+        /* From https://css.glass */
+        background: rgba(69, 103, 174, 0.4);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6.4px);
+        -webkit-backdrop-filter: blur(6.4px);
       }
 
 
@@ -60,9 +74,21 @@
         font-weight: bold;
         font-size: 20px;
         font-weight: ''bold;
-        color: rgb(241, 222, 247);
+        // color: rgb(241, 222, 247);
+        color: white;
         margin: auto;
         padding: 8px
+      }
+
+      .treasury-helper {
+        position: absolute;
+        top: 13%;
+        right: 2%;
+        width: auto;
+        // display: flex;
+        align-items: right !important;
+        justify-content: right !important;
+        flex-direction: column;
       }
     }
   }

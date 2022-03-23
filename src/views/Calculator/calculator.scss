@@ -13,15 +13,21 @@
         // box-shadow: 0px 2px 10px 5px rgb(78, 70, 51);
 
         @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-            background: #505048;
-            background-color: transparentize($color: #4a4835e0, $amount: 0);
+            background: #3d578d80;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8.9px);
+            -webkit-backdrop-filter: blur(8.9px);
 
         }
 
         /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
         @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-            background: #505048;
-            background-color: transparentize($color: #4a4835e0, $amount: 0);
+            background: #3d578d80;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8.9px);
+            -webkit-backdrop-filter: blur(8.9px);
         }
 
 
@@ -151,8 +157,8 @@
                         // border-radius: 10px;
                         // outline: none;
 
-                        color: rgb(214, 159, 231);
-                        border: 0.1em solid;
+                        // color: rgb(214, 159, 231);
+                        border: 0.3em;
                         border-radius: 1.2em;
                         width: auto;
                         height: auto;
@@ -207,7 +213,8 @@
                         background: #232323;
                         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
                         border-radius: 10px;
-                        border: 1px solid rgb(214, 159, 231);;
+                        border: 1px solid rgb(214, 159, 231);
+                        ;
                     }
 
                     .MuiSlider-track {
