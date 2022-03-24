@@ -58,8 +58,8 @@ function MaiaMenu() {
                 {({ TransitionProps }) => (
                     <Fade {...TransitionProps} timeout={200}>
                         <div className="tooltip">
-                            <Link className="tooltip-item" href={`https://tethys.finance/swap?inputCurrency=0xEA32A96608495e54156Ae48931A7c20f0dcc1a21&outputCurrency=${MAIA_ADDRESS}`} target="_blank">
-                                <p>Buy on Tethys Finance</p>
+                            <Link className="tooltip-item" href={"https://hermes.maiadao.io/#/swap"} target="_blank">
+                                <p>Buy on Hermes Protocol</p>
                             </Link>
 
                             {isEthereumAPIAvailable && (

@@ -23,11 +23,11 @@
         cursor: default;
 
         .landing-header-nav-text {
-            background: #505048;
-            background-color: transparentize($color: #4a4835bf, $amount: 0);
+            // background: #505048;
+            background-color: transparentize($color: #4a4835bf, $amount: 0.1);
             font-family: Montserrat Medium;
             font-size: 18px;
-            color: rgb(236, 185, 252);
+            color: white;
             // border: 0.05em solid;
             border-radius: 0.31em;
             width: 6.5em;
@@ -81,7 +81,7 @@
                 font-weight: 600;
                 font-size: 14px;
                 line-height: 20px;
-                color: rgb(236, 185, 252);
+                color: white;
             }
         }
     }

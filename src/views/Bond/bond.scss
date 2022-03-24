@@ -21,15 +21,18 @@
   }
 
   .bond-card {
-    --c: rgb(214, 159, 231);
+    // --c: rgb(214, 159, 231);
 
     color: var(--c);
-    border: 0.1em solid var(--c);
+    // border: 0.1em solid var(--c);
     border-radius: 1.7em;
     max-width: 803px;
     min-height: 605px;
-    background: #505048;
-    background-color: transparentize($color: #2f2e26e0, $amount: 0);
+    background: #45567aaf;
+    // border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
     backdrop-filter: blur(100px);
     border-radius: 10px;
     padding: 20px;
@@ -178,12 +181,12 @@
   }
 
   .bond-input {
-    --c:  rgb(214, 159, 231);
-    color: var(--c);
-    border: 0.1em solid var(--c);
+    // --c: rgb(214, 159, 231);
+    // color: var(--c);
+    // border: 0.1em solid var(--c);
     border-radius: 1.7em;
     background: rgba(255, 255, 255, 0.2);
-    border: 1px solid  rgb(214, 159, 231);
+    // border: 1px solid rgb(214, 159, 231);
     border-radius: 10px;
     outline: none;
     margin-bottom: 20px;
@@ -213,10 +216,15 @@
   }
 
   .bond-approve-btn {
-    --c:  rgb(214, 159, 231);
+    // --c: rgb(214, 159, 231);
+    background: #6378a5af;
+    // border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
 
-    color: var(--c);
-    border: 0.1em solid var(--c);
+    // color: var(--c);
+    // border: 0.1em solid var(--c);
     border-radius: 1.7em;
     height: 58px;
     cursor: pointer;

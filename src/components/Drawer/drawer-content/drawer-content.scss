@@ -5,24 +5,30 @@
   min-width: 280px;
   display: flex;
   flex-direction: column;
-  background: #685a6b;
+  // background: #685a6b;
+  background-color: transparentize($color: #688bd18f, $amount: 0.8);
   text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
-  scrollbar-width: thin;
+  scrollbar-width: thin !important;
+
+
 
   .dapp-sidebar::-webkit-scrollbar {
-    width: 12px;
+    // width: thin !important;
+    background: #ddd;
+    border-radius: 20px;
   }
 
   .dapp-sidebar::-webkit-scrollbar-track {
     background: orange;
+
   }
 
   .dapp-sidebar::-webkit-scrollbar-thumb {
-    background-color: blue;
-    border-radius: 20px;
-    border: 3px solid orange;
+    background-color: inherit;
+    // border-radius: 20px;
+    // border: 3px solid orange;
   }
 
   .branding-header {
@@ -40,9 +46,11 @@
 
     .wallet-link {
       margin: 10px;
+      text-decoration: none !important;
 
       p {
         color: #FFFFFF;
+        text-decoration: none;
       }
     }
   }
@@ -50,9 +58,9 @@
   .dapp-menu-links {
     display: flex;
     align-items: center;
-    background: #685a6b;
+    // background: #685a6b;
     text-align: center;
-
+    margin-right: 1.5%;
 
 
     .dapp-nav {
@@ -75,7 +83,7 @@
       }
 
       .button-dapp-menu {
-        background: #685a6b;
+        // background: red;
         text-decoration: none;
 
         div {
@@ -83,39 +91,22 @@
           text-align: center;
           cursor: pointer;
           position: relative;
-          background-color: rgb(241, 222, 247);
-          color: rgb(255, 255, 255);
+          background: #688bd18f;
+          border-radius: 4px;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(8.9px);
+          -webkit-backdrop-filter: blur(8.9px);
+          color: #ffffff;
+          // border: 0.1em solid;
+          // border-radius: 3em;
+
+          // color: rgb(255, 255, 255);
           width: 200px;
           text-align: justify;
           transition-duration: 0.6s;
           overflow: hidden;
-
-          border-radius: 4px;
         }
 
-        // div:hover {
-        //   background: rgba(231, 211, 159, 0.062);
-        //   //box-shadow: 0px 2px 10px 5px rgb(139, 132, 115);
-        //   color: rgb(255, 255, 255);
-        //   transform: scale(1.1);
-        // }
-
-
-
-
-
-        // div:after {
-        //   content: "";
-        //   background: rgb(255, 255, 255);
-        //   display: block;
-        //   position: absolute;
-        //   padding-top: 300%;
-        //   padding-left: 350%;
-        //   margin-left: -20px !important;
-        //   margin-top: -120%;
-        //   opacity: 0;
-        //   transition: all 0.8s
-        // }
 
         div:active:after {
           padding: 0;
@@ -130,9 +121,6 @@
 
 
         .dapp-menu-item {
-          --c: goldenrod;
-          color: var(--c);
-
           width: auto;
           height: auto;
           display: flex;
@@ -147,7 +135,7 @@
           transition: all ease-out 300ms;
           font-weight: 100;
           font-size: 14px;
-          color: #685a6b;
+          color: #9b9b90ad;
           font-family: Montserrat SemiBold;
           text-align: center;
 
@@ -167,14 +155,14 @@
             border: 0.1em;
             border-radius: 0.5em;
             box-shadow: rgb(139, 132, 115);
-            color: #685a6b;
+            color: white !important;
           }
         }
       }
 
       .bond-discounts {
         text-align: left;
-        padding-left: 60px;
+        padding-left: 35px;
 
         a {
           margin-left: 0;
@@ -209,7 +197,7 @@
     border-radius: 1em;
     width: 15em;
     height: 10.7em;
-    background: #685a6b;
+    // background: #685a6b;
     display: flex;
     flex-direction: column;
     align-items: justify;
@@ -244,7 +232,7 @@
   }
 
   .social-row {
-    background: #685a6b;
+    // background: #685a6b;
     display: flex;
     flex-flow: row;
     justify-content: space-evenly;
@@ -270,6 +258,15 @@
 
     z-index: 7;
 
+    .MuiPaper-root::-webkit-scrollbar {
+      width: thin !important;
+    }
+
+    .MuiPaper-root::-webkit-scrollbar-track {
+      background: orange;
+
+    }
+
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background: rgba(36, 39, 41, 0.1);
       backdrop-filter: blur(40px);
@@ -277,7 +274,7 @@
 
     /* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
     @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-      background: #181B1C;
+      background-color: transparentize($color: #dddada93, $amount: 0.6);
     }
   }
 }

@@ -8,6 +8,9 @@ import { getMarketPrice, getTokenPrice } from "../../helpers";
 import { RootState } from "../store";
 import allBonds from "../../helpers/bond";
 import { useWeb3Context } from "../../hooks";
+import { getHermesValue } from "src/tvl";
+
+const axios = require("axios");
 
 interface ILoadAppDetails {
     networkID: number;
@@ -35,15 +38,24 @@ export const loadAppDetails = createAsyncThunk(
         const stakingTVL = circSupply * marketPrice;
         const marketCap = totalSupply * marketPrice;
 
-        const tokenBalPromises = allBonds.map(bond => bond.isClosed ? 0 : bond.getTreasuryBalance(networkID, provider));
+        const tokenBalPromises = allBonds.map(bond => (bond.isClosed ? 0 : bond.getTreasuryBalance(networkID, provider)));
         const tokenBalances = await Promise.all(tokenBalPromises);
-        const treasuryBalance = tokenBalances.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
+        //const treasuryBalance = tokenBalances.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
 
-        const tokenAmountsPromises = allBonds.map(bond => bond.isClosed ? 0 : bond.getTokenAmount(networkID, provider));
+        const hermesValue = await getHermesValue(provider);
+
+        let response = await axios.get("https://api.llama.fi/tvl/maia-dao");
+
+        const treasuryBalance = response.data + hermesValue;
+
+        const tokenAmountsPromises = allBonds.map(bond => (bond.isClosed ? 0 : bond.getTokenAmount(networkID, provider)));
         const tokenAmounts = await Promise.all(tokenAmountsPromises);
-        const rfvTreasury = tokenAmounts.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
 
-        const maiaBondsAmountsPromises = allBonds.map(bond => bond.isClosed ? 0 : bond.getMaiaAmount(networkID, provider));
+        //const rfvTreasury = tokenAmounts.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
+
+        const rfvTreasury = treasuryBalance;
+
+        const maiaBondsAmountsPromises = allBonds.map(bond => (bond.isClosed ? 0 : bond.getMaiaAmount(networkID, provider)));
         const maiaBondsAmounts = await Promise.all(maiaBondsAmountsPromises);
         const maiaAmount = maiaBondsAmounts.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
         const maiaSupply = totalSupply - maiaAmount;
