@@ -22,7 +22,7 @@ function Main() {
                     <ul>
                         <li>
                             <div>
-                                <Link href="http://app.maiadao.io/#/dashboard" target="_blank" rel="noreferrer">
+                                <Link href="https://app.maiadao.io/#/dashboard" target="_blank" rel="noreferrer">
                                     <p>ENTER APP</p>
                                 </Link>
                             </div>

@@ -1,145 +1,135 @@
-import { Networks } from '../../constants/blockchain'
-import { LPBond } from './lp-bond'
-import { StableBond, CustomBond } from './stable-bond'
+import { Networks } from "../../constants/blockchain";
+import { LPBond } from "./lp-bond";
+import { StableBond, CustomBond } from "./stable-bond";
 
-import DaiIcon from '../../assets/tokens/mUSDC.png'
-import MaiaMUSDCIcon from '../../assets/tokens/MAIA-USDC.png'
-import USDTIcon from '../../assets/tokens/USDT.e.png'
-import ETHicon from '../../assets/tokens/WETH.e.png'
-import WMETISicon from '../../assets/tokens/WMETIS.png'
-import TETHYSicon from '../../assets/tokens/TETHYS.png'
-import BusdIcon from '../../assets/tokens/busd.png'
+import DaiIcon from "../../assets/tokens/mUSDC.png";
+import MaiaMUSDCIcon from "../../assets/tokens/MAIA-USDC.png";
+import USDTIcon from "../../assets/tokens/USDT.e.png";
+import ETHicon from "../../assets/tokens/WETH.e.png";
+import WMETISicon from "../../assets/tokens/WMETIS.png";
+import TETHYSicon from "../../assets/tokens/TETHYS.png";
+import BusdIcon from "../../assets/tokens/busd.png";
 
-import { getAddresses } from 'src/constants'
-
-import {
-  StableBondContract,
-  LpBondContract,
-  StableReserveContract,
-  LpReserveContract,
-  WmaticBondContract
-} from '../../abi'
-
+import { StableBondContract, LpBondContract, StableReserveContract, LpReserveContract, WmaticBondContract } from "../../abi";
 
 export const tethys = new CustomBond({
-  name: 'tethys',
-  displayName: 'TETHYS',
-  bondToken: 'TETHYS',
-  bondIconSvg: TETHYSicon,
-  bondContractABI: StableBondContract,
-  reserveContractAbi: StableReserveContract,
-  isClosed: false,
-  decimals: 18,
-  networkAddrs: {
-    [Networks.METIS]: {
-      bondAddress: '0x89fEf02c281cD1dcB4371dC9a32931E3Dc8777c9',
-      reserveAddress: '0x69fdb77064ec5c84FA2F21072973eB28441F43F3',
+    name: "tethys",
+    displayName: "TETHYS",
+    bondToken: "TETHYS",
+    bondIconSvg: TETHYSicon,
+    bondContractABI: StableBondContract,
+    reserveContractAbi: StableReserveContract,
+    isClosed: false,
+    decimals: 18,
+    networkAddrs: {
+        [Networks.METIS]: {
+            bondAddress: "0x89fEf02c281cD1dcB4371dC9a32931E3Dc8777c9",
+            reserveAddress: "0x69fdb77064ec5c84FA2F21072973eB28441F43F3",
+        },
     },
-  },
-})
+});
 
 export const busd = new CustomBond({
-  name: 'busd',
-  displayName: 'BUSD',
-  bondToken: 'BUSD',
-  bondIconSvg: BusdIcon,
-  bondContractABI: StableBondContract,
-  reserveContractAbi: StableReserveContract,
-  isClosed: false,
-  decimals: 18,
-  networkAddrs: {
-    [Networks.METIS]: {
-      bondAddress: '0xB9791D1D5C33F79CA97f72fCd4c707DA589EE28f',
-      reserveAddress: '0x12D84f1CFe870cA9C9dF9785f8954341d7fbb249',
+    name: "busd",
+    displayName: "BUSD",
+    bondToken: "BUSD",
+    bondIconSvg: BusdIcon,
+    bondContractABI: StableBondContract,
+    reserveContractAbi: StableReserveContract,
+    isClosed: false,
+    decimals: 18,
+    networkAddrs: {
+        [Networks.METIS]: {
+            bondAddress: "0xB9791D1D5C33F79CA97f72fCd4c707DA589EE28f",
+            reserveAddress: "0x12D84f1CFe870cA9C9dF9785f8954341d7fbb249",
+        },
     },
-  },
-})
+});
 
 export const wmetis = new CustomBond({
-  name: 'wmetis',
-  displayName: 'METIS',
-  bondToken: 'METIS',
-  bondIconSvg: WMETISicon,
-  bondContractABI: WmaticBondContract,
-  reserveContractAbi: StableReserveContract,
-  isClosed: false,
-  decimals: 18,
-  networkAddrs: {
-    [Networks.METIS]: {
-      bondAddress: '0x8037603aa8a69b2B02615048c06f600255c7F30A',
-      reserveAddress: '0x75cb093E4D61d2A2e65D8e0BBb01DE8d89b53481',
+    name: "wmetis",
+    displayName: "METIS",
+    bondToken: "METIS",
+    bondIconSvg: WMETISicon,
+    bondContractABI: WmaticBondContract,
+    reserveContractAbi: StableReserveContract,
+    isClosed: false,
+    decimals: 18,
+    networkAddrs: {
+        [Networks.METIS]: {
+            bondAddress: "0x8037603aa8a69b2B02615048c06f600255c7F30A",
+            reserveAddress: "0x75cb093E4D61d2A2e65D8e0BBb01DE8d89b53481",
+        },
     },
-  },
-})
+});
 
 export const usdc = new StableBond({
-  name: 'musdc',
-  displayName: 'm.USDC',
-  bondToken: 'USDC',
-  bondIconSvg: DaiIcon,
-  bondContractABI: StableBondContract,
-  reserveContractAbi: StableReserveContract,
-  isClosed: false,
-  decimals: 6,
-  networkAddrs: {
-    [Networks.METIS]: {
-      bondAddress: '0xEA0415b511A1199F7E0822B8641Ab49A44c74A1d',
-      reserveAddress: '0xEA32A96608495e54156Ae48931A7c20f0dcc1a21',
+    name: "musdc",
+    displayName: "m.USDC",
+    bondToken: "USDC",
+    bondIconSvg: DaiIcon,
+    bondContractABI: StableBondContract,
+    reserveContractAbi: StableReserveContract,
+    isClosed: false,
+    decimals: 6,
+    networkAddrs: {
+        [Networks.METIS]: {
+            bondAddress: "0xEA0415b511A1199F7E0822B8641Ab49A44c74A1d",
+            reserveAddress: "0xEA32A96608495e54156Ae48931A7c20f0dcc1a21",
+        },
     },
-  },
-})
+});
 
 export const usdt = new StableBond({
-  name: 'musdt',
-  displayName: 'm.USDT',
-  bondToken: 'USDT',
-  bondIconSvg: USDTIcon,
-  bondContractABI: StableBondContract,
-  reserveContractAbi: StableReserveContract,
-  isClosed: false,
-  decimals: 6,
-  networkAddrs: {
-    [Networks.METIS]: {
-      bondAddress: '0x3212c7F0D2f07707786DFE5e0A64AEffB4f072AC',
-      reserveAddress: '0xbB06DCA3AE6887fAbF931640f67cab3e3a16F4dC',
+    name: "musdt",
+    displayName: "m.USDT",
+    bondToken: "USDT",
+    bondIconSvg: USDTIcon,
+    bondContractABI: StableBondContract,
+    reserveContractAbi: StableReserveContract,
+    isClosed: false,
+    decimals: 6,
+    networkAddrs: {
+        [Networks.METIS]: {
+            bondAddress: "0x3212c7F0D2f07707786DFE5e0A64AEffB4f072AC",
+            reserveAddress: "0xbB06DCA3AE6887fAbF931640f67cab3e3a16F4dC",
+        },
     },
-  },
-})
+});
 
 export const weth = new CustomBond({
-  name: 'weth',
-  displayName: 'WETH',
-  bondToken: 'WETH',
-  bondIconSvg: ETHicon,
-  bondContractABI: StableBondContract,
-  reserveContractAbi: StableReserveContract,
-  isClosed: false,
-  decimals: 18,
-  networkAddrs: {
-    [Networks.METIS]: {
-      bondAddress: '0x83DE931543bA68fE9c2684ab350985F2C10e501a',
-      reserveAddress: '0x420000000000000000000000000000000000000A',
+    name: "weth",
+    displayName: "WETH",
+    bondToken: "WETH",
+    bondIconSvg: ETHicon,
+    bondContractABI: StableBondContract,
+    reserveContractAbi: StableReserveContract,
+    isClosed: false,
+    decimals: 18,
+    networkAddrs: {
+        [Networks.METIS]: {
+            bondAddress: "0x83DE931543bA68fE9c2684ab350985F2C10e501a",
+            reserveAddress: "0x420000000000000000000000000000000000000A",
+        },
     },
-  },
-})
+});
 
 export const mimMaia = new LPBond({
- name: 'musdc_maia_lp',
- displayName: 'MAIA-mUSDC LP',
- bondToken: 'MAIA-mUSDC LP',
- bondIconSvg: MaiaMUSDCIcon,
- bondContractABI: LpBondContract,
- reserveContractAbi: LpReserveContract,
- isClosed: false,
- networkAddrs: {
-    [Networks.METIS]: {
-      bondAddress: '0xd211a32199F9A36A9A75a506EE17c4808f9353F1',
-      reserveAddress: '0x82758824b93F2648bCC9387878CF443C9c0cB768',
+    name: "musdc_maia_lp",
+    displayName: "MAIA-mUSDC LP",
+    bondToken: "MAIA-mUSDC LP",
+    bondIconSvg: MaiaMUSDCIcon,
+    bondContractABI: LpBondContract,
+    reserveContractAbi: LpReserveContract,
+    isClosed: false,
+    networkAddrs: {
+        [Networks.METIS]: {
+            bondAddress: "0xd211a32199F9A36A9A75a506EE17c4808f9353F1",
+            reserveAddress: "0x82758824b93F2648bCC9387878CF443C9c0cB768",
+        },
     },
-  },
-  lpUrl:
-    'https://tethys.finance/pool/add?inputCurrency=0xEA32A96608495e54156Ae48931A7c20f0dcc1a21&outputCurrency=0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD',
-})
+    lpUrl: "https://tethys.finance/pool/add?inputCurrency=0xEA32A96608495e54156Ae48931A7c20f0dcc1a21&outputCurrency=0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD",
+});
 
 // export const usdcFixed = new StableBond({
 //   name: 'fixedmusdc',
@@ -332,5 +322,6 @@ export const mimMaia = new LPBond({
 //   isClosed: true,
 // })
 
+const tokens = [usdc, usdt, weth, wmetis, mimMaia, busd];
 
-export default [usdc, usdt, weth, wmetis,mimMaia, busd]
+export default tokens;

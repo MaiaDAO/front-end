@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import App from "./App";
-import Dashboard from "../views/Dashboard/index";
 import { HashRouter } from "react-router-dom";
 import { loadTokenPrices } from "../helpers";
 import Loading from "../components/Loader";

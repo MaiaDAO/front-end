@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Paper, Grid, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Zoom } from "@material-ui/core";
+import { Grid, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Zoom } from "@material-ui/core";
 import { BondTableData, BondDataCard } from "./BondRow";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { trim } from "../../helpers";
@@ -77,11 +77,7 @@ function ChooseBond() {
                                             <TableCell align="right"></TableCell>
                                         </TableRow>
                                     </TableHead>
-                                    <TableBody>
-                                        {bonds.map(bond => (!bond.isClosed &&
-                                            <BondTableData key={bond.name} bond={bond} />
-                                        ))}
-                                    </TableBody>
+                                    <TableBody>{bonds.map(bond => !bond.isClosed && <BondTableData key={bond.name} bond={bond} />)}</TableBody>
                                 </Table>
                             </TableContainer>
                         </Grid>
@@ -91,11 +87,14 @@ function ChooseBond() {
             {isSmallScreen && (
                 <div className="choose-bond-view-card-container">
                     <Grid container item spacing={2}>
-                        {bonds.map(bond => (!bond.isClosed &&
-                            <Grid item xs={12} key={bond.name}>
-                                <BondDataCard key={bond.name} bond={bond} />
-                            </Grid>
-                        ))}
+                        {bonds.map(
+                            bond =>
+                                !bond.isClosed && (
+                                    <Grid item xs={12} key={bond.name}>
+                                        <BondDataCard key={bond.name} bond={bond} />
+                                    </Grid>
+                                ),
+                        )}
                     </Grid>
                 </div>
             )}

@@ -1,5 +1,3 @@
-import { Networks } from "../constants/blockchain";
-
 const switchRequest = () => {
     return window.ethereum.request({
         method: "wallet_switchEthereumChain",

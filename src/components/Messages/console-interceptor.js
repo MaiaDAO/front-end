@@ -15,7 +15,7 @@ var consoleInterceptor = function (message) {
 consoleInterceptor.isInterceptor = true;
 
 // Replaces the console.error function by our interceptor
-if (console.error.isInterceptor != true) {
+if (console.error.isInterceptor !== true) {
     console._error_old = console.error;
     console.error = consoleInterceptor;
 }
