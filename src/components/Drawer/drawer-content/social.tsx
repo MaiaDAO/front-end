@@ -22,16 +22,16 @@ export default function Social() {
             </Link>
 
             <Link className="tooltip-item" href="https://t.me/maiadao" target="_blank">
-                <img src={Telegram} />
+                <img src={Telegram} alt="telegram link icon" />
             </Link>
-            
+
             <Link href="https://dexscreener.com/metis/0x82758824b93f2648bcc9387878cf443c9c0cb768" target="_blank">
-                <img src={DexScreener} />
+                <img src={DexScreener} alt="dexscreener link icon" />
             </Link>
-            
+
             <Link className="tooltip-item" href="https://medium.com/@maiaDAO/" target="_blank">
-                <img src={Medium} />
-            </Link>         
+                <img src={Medium} alt="medium link icon" />
+            </Link>
         </div>
     );
 }

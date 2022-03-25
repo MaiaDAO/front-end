@@ -1,4 +1,4 @@
-import { Box, SvgIcon } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { Bond } from "../helpers/bond/bond";
 
 interface IBondLogoProps {
@@ -11,7 +11,7 @@ function BondLogo({ bond }: IBondLogoProps) {
     if (bond.isLP) {
         style = { height: "60px", width: "60px" };
     }
-    if (bond.name == "GOHM") {
+    if (bond.name === "GOHM") {
         style = { height: "40px", width: "40px" };
     }
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useWeb3Context } from "../../../hooks";
-import { DEFAULD_NETWORK } from "../../../constants";
+import { DEFAULT_NETWORK } from "../../../constants";
 import { IReduxState } from "../../../store/slices/state.interface";
 import { IPendingTxn } from "../../../store/slices/pending-txns-slice";
 import "./connect-menu.scss";
@@ -9,7 +9,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 function ConnectMenu() {
     const { connect, disconnect, connected, web3, providerChainID, checkWrongNetwork } = useWeb3Context();
-    const dispatch = useDispatch();
     const [isConnected, setConnected] = useState(connected);
 
     let pendingTransactions = useSelector<IReduxState, IPendingTxn[]>(state => {
@@ -30,7 +29,7 @@ function ConnectMenu() {
         clickFunc = () => {};
     }
 
-    if (isConnected && providerChainID !== DEFAULD_NETWORK) {
+    if (isConnected && providerChainID !== DEFAULT_NETWORK) {
         buttonText = "Wrong network";
         buttonStyle = { backgroundColor: "#4a4835bf" };
         clickFunc = () => {
