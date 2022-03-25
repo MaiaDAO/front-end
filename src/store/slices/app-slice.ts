@@ -7,7 +7,7 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import { getMarketPrice, getTokenPrice } from "../../helpers";
 import { RootState } from "../store";
 import allBonds from "../../helpers/bond";
-import { getHermesValue } from "src/tvl";
+import { getHermesValue } from "../../hooks/hermesValue";
 
 const axios = require("axios");
 

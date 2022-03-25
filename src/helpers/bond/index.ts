@@ -125,7 +125,7 @@ export const mimMaia = new LPBond({
     networkAddrs: {
         [Networks.METIS]: {
             bondAddress: "0xd211a32199F9A36A9A75a506EE17c4808f9353F1",
-            reserveAddress: "0x82758824b93F2648bCC9387878CF443C9c0cB768",
+            reserveAddress: "0xa3e8e7eb4649ffc6f3cbe42b4c2ecf6625d3e802",
         },
     },
     lpUrl: "https://tethys.finance/pool/add?inputCurrency=0xEA32A96608495e54156Ae48931A7c20f0dcc1a21&outputCurrency=0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD",
