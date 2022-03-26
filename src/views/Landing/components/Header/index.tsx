@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./header.scss";
-import MaiaLogo from "../../../../assets/icons/maia.png";
-import { ReactComponent as WonderlandIcon } from "../../../../assets/icons/wonderland-icon.svg";
 import { SvgIcon, Link, Box, Popper, Fade } from "@material-ui/core";
 import { ReactComponent as GitHub } from "../../../../assets/icons/github.svg";
 import { ReactComponent as Twitter } from "../../../../assets/icons/twitter.svg";
@@ -21,7 +19,6 @@ function Header() {
 
     return (
         <div className="landing-header">
-            {/* <img alt="" src={MaiaLogo} /> */}
             <div className="landing-header-nav-wrap">
                 <Box component="div" onMouseEnter={e => handleClick(e)} onMouseLeave={e => handleClick(e)}>
                     <p className="landing-header-nav-text">Social</p>

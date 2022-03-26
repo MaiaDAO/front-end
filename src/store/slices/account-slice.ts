@@ -1,13 +1,12 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { MaiaTokenContract, sMaiaTokenContract, MimTokenContract, PresaleContract, WhitelistContract } from "../../abi";
+import { MaiaTokenContract, sMaiaTokenContract, MimTokenContract } from "../../abi";
 import { setAll } from "../../helpers";
 
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { Bond } from "../../helpers/bond/bond";
 import { Networks } from "../../constants/blockchain";
-import React from "react";
 import { RootState } from "../store";
 import { IToken } from "../../helpers/tokens";
 import { usdt, usdc } from "../../helpers/bond/index";
@@ -140,15 +139,15 @@ export const calculateUserBondDetails = createAsyncThunk("account/calculateUserB
     let allowance,
         balance = 0,
         balanceVal = 0;
-    
+
     allowance = await reserveContract.allowance(address, bond.getAddressForBond(networkID));
     balance = await reserveContract.balanceOf(address);
-    if(bond.isLP || (bond.name !== usdc.name && bond.name !== usdt.name)){
+    if (bond.isLP || (bond.name !== usdc.name && bond.name !== usdt.name)) {
         balanceVal = balance / 1e18;
-    }else{
+    } else {
         balanceVal = balance / 1e6;
     }
-    
+
     const maticBalance = await provider.getSigner().getBalance();
     const maticVal = ethers.utils.formatEther(maticBalance);
 
@@ -206,8 +205,6 @@ export const calculateUserTokenDetails = createAsyncThunk("account/calculateUser
         };
     }
 
-    const addresses = getAddresses(networkID);
-
     const tokenContract = new ethers.Contract(token.address, MimTokenContract, provider);
 
     let allowance = "0",
@@ -218,7 +215,7 @@ export const calculateUserTokenDetails = createAsyncThunk("account/calculateUser
     try {
         balance = await tokenContract.balanceOf(address);
 
-        balanceVal = Number(balance) / Math.pow(10, token.decimals);       
+        balanceVal = Number(balance) / Math.pow(10, token.decimals);
     } catch (error) {}
 
     return {

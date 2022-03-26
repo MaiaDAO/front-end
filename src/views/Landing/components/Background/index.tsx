@@ -1,8 +1,5 @@
 import React from "react";
 import "./background.scss";
-import MaiasTop from "../../../../assets/icons/landing-maias-center.png";
-import MaiasCenter from "../../../../assets/icons/landing-maias-center.png";
-import back from "../../../../assets/icons/gg.png";
 
 function Background() {
     return (

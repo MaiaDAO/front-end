@@ -1,59 +1,59 @@
-import MaticIcon from '../assets/tokens/METIS.svg'
-import AaveIcon from '../assets/tokens/AAVE.e.png'
-import ApeXIcon from '../assets/tokens/Ape-X.png'
-import ApeinIcon from '../assets/tokens/APEIN.png'
-import BifiIcon from '../assets/tokens/BIFI.png'
-import BlizzIcon from '../assets/tokens/BLIZZ.png'
-import BnbIcon from '../assets/tokens/BNB.png'
-import BoofiIcon from '../assets/tokens/BOOFI.png'
-import ChartIcon from '../assets/tokens/CHART.png'
-import DaiEIcon from '../assets/tokens/mUSDC.png'
-import DreggIcon from '../assets/tokens/DREGG.png'
-import EleIcon from '../assets/tokens/ELE.png'
-import ElkIcon from '../assets/tokens/ELK.png'
-import FraxIcon from '../assets/tokens/FRAX.png'
-import GbIcon from '../assets/tokens/GB.png'
-import HatIcon from '../assets/tokens/HAT.png'
-import HuskyIcon from '../assets/tokens/HUSKY.png'
-import IceIcon from '../assets/tokens/ICE.png'
-import JoeIcon from '../assets/tokens/JOE.png'
-import KloIcon from '../assets/tokens/KLO.png'
-import LinkEIcon from '../assets/tokens/LINK.e.png'
-import MainIcon from '../assets/tokens/MAI.png'
-import MimIcon from '../assets/tokens/MIM.svg'
-import MYakIcon from '../assets/tokens/mYAK.png'
-import OliveIcon from '../assets/tokens/OLIVE.png'
-import PefiIcon from '../assets/tokens/PEFI.png'
-import PngIcon from '../assets/tokens/PNG.png'
-import QiIcon from '../assets/tokens/QI.png'
-import RelayIcon from '../assets/tokens/RELAY.png'
-import SherpaIcon from '../assets/tokens/SHERPA.png'
-import ShibxIcon from '../assets/tokens/SHIBX.png'
-import SingIcon from '../assets/tokens/SING.png'
-import SnobIcon from '../assets/tokens/SNOB.png'
-import SpellIcon from '../assets/tokens/SPELL.png'
-import SushiEIcon from '../assets/tokens/SUSHI.e.png'
-import SynIcon from '../assets/tokens/SYN.png'
-import TeddyIcon from '../assets/tokens/TEDDY.png'
-import MaiaIcon from '../assets/tokens/MAIA.png'
-import TsdIcon from '../assets/tokens/TSD.png'
-import UsdcEIcon from '../assets/tokens/USDC.e.png'
-import UsdtEIcon from '../assets/tokens/USDT.e.png'
-import VsoIcon from '../assets/tokens/VSO.png'
-import WmaticIcon from '../assets/tokens/WMETIS.png'
-import WBtcIcon from '../assets/tokens/WBTC.e.png'
-import WetIcon from '../assets/tokens/WET.png'
-import WethEIcon from '../assets/tokens/WETH.e.png'
-import XavaIcon from '../assets/tokens/XAVA.png'
-import YakIcon from '../assets/tokens/YAK.png'
-import UsdcIcon from '../assets/tokens/USDC.svg'
+import MaticIcon from "../assets/tokens/METIS.svg";
+// import AaveIcon from '../assets/tokens/AAVE.e.png'
+// import ApeXIcon from '../assets/tokens/Ape-X.png'
+// import ApeinIcon from '../assets/tokens/APEIN.png'
+// import BifiIcon from '../assets/tokens/BIFI.png'
+// import BlizzIcon from '../assets/tokens/BLIZZ.png'
+// import BnbIcon from '../assets/tokens/BNB.png'
+// import BoofiIcon from '../assets/tokens/BOOFI.png'
+// import ChartIcon from '../assets/tokens/CHART.png'
+import DaiEIcon from "../assets/tokens/mUSDC.png";
+// import DreggIcon from '../assets/tokens/DREGG.png'
+// import EleIcon from '../assets/tokens/ELE.png'
+// import ElkIcon from '../assets/tokens/ELK.png'
+// import FraxIcon from '../assets/tokens/FRAX.png'
+// import GbIcon from '../assets/tokens/GB.png'
+// import HatIcon from '../assets/tokens/HAT.png'
+// import HuskyIcon from '../assets/tokens/HUSKY.png'
+// import IceIcon from '../assets/tokens/ICE.png'
+// import JoeIcon from '../assets/tokens/JOE.png'
+// import KloIcon from '../assets/tokens/KLO.png'
+// import LinkEIcon from '../assets/tokens/LINK.e.png'
+// import MainIcon from '../assets/tokens/MAI.png'
+// import MimIcon from '../assets/tokens/MIM.svg'
+// import MYakIcon from '../assets/tokens/mYAK.png'
+// import OliveIcon from '../assets/tokens/OLIVE.png'
+// import PefiIcon from '../assets/tokens/PEFI.png'
+// import PngIcon from '../assets/tokens/PNG.png'
+// import QiIcon from '../assets/tokens/QI.png'
+// import RelayIcon from '../assets/tokens/RELAY.png'
+// import SherpaIcon from '../assets/tokens/SHERPA.png'
+// import ShibxIcon from '../assets/tokens/SHIBX.png'
+// import SingIcon from '../assets/tokens/SING.png'
+// import SnobIcon from '../assets/tokens/SNOB.png'
+// import SpellIcon from '../assets/tokens/SPELL.png'
+// import SushiEIcon from '../assets/tokens/SUSHI.e.png'
+// import SynIcon from '../assets/tokens/SYN.png'
+// import TeddyIcon from '../assets/tokens/TEDDY.png'
+import MaiaIcon from "../assets/tokens/MAIA.png";
+// import TsdIcon from '../assets/tokens/TSD.png'
+// import UsdcEIcon from '../assets/tokens/USDC.e.png'
+import UsdtEIcon from "../assets/tokens/USDT.e.png";
+// import VsoIcon from '../assets/tokens/VSO.png'
+import WmaticIcon from "../assets/tokens/WMETIS.png";
+// import WBtcIcon from '../assets/tokens/WBTC.e.png'
+// import WetIcon from '../assets/tokens/WET.png'
+import WethEIcon from "../assets/tokens/WETH.e.png";
+// import XavaIcon from '../assets/tokens/XAVA.png'
+// import YakIcon from '../assets/tokens/YAK.png'
+// import UsdcIcon from '../assets/tokens/USDC.svg'
 
 export interface IToken {
-  name: string
-  address: string
-  img: string
-  isMetis?: boolean
-  decimals: number
+    name: string;
+    address: string;
+    img: string;
+    isMetis?: boolean;
+    decimals: number;
 }
 
 export const metis: IToken = {
@@ -65,18 +65,18 @@ export const metis: IToken = {
 };
 
 export const musdc: IToken = {
-  name: 'm.USDC',
-  address: '0xEA32A96608495e54156Ae48931A7c20f0dcc1a21',
-  img: DaiEIcon,
-  decimals: 6,
-}
+    name: "m.USDC",
+    address: "0xEA32A96608495e54156Ae48931A7c20f0dcc1a21",
+    img: DaiEIcon,
+    decimals: 6,
+};
 
 const maia: IToken = {
-  name: 'MAIA',
-  address: '0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD',
-  img: MaiaIcon,
-  decimals: 9,
-}
+    name: "MAIA",
+    address: "0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD",
+    img: MaiaIcon,
+    decimals: 9,
+};
 
 const weth: IToken = {
     name: "WETH.e",
@@ -365,11 +365,11 @@ export const tethys: IToken = {
 // };
 
 const usdt: IToken = {
-  name: 'USDT.e',
-  address: '',
-  img: UsdtEIcon,
-  decimals: 6,
-}
+    name: "USDT.e",
+    address: "",
+    img: UsdtEIcon,
+    decimals: 6,
+};
 
 // const vso: IToken = {
 //     name: "VSO",
@@ -406,54 +406,56 @@ const usdt: IToken = {
 //     decimals: 18,
 // };
 
-export default [
-  // matic,
-  // aave,
-  // apeX,
-  // apein,
-  // bifi,
-  // blizz,
-  maia,
-  // bnb,
-  // boofi,
-  // chart,
-  musdc,
-  // dregg,
-  // ele,
-  // elk,
-  // frax,
-  // gb,
-  // hat,
-  // husky,
-  // ice,
-  // joe,
-  // klo,
-  // link,
-  // mai,
-  // mim,
-  // usdc,
-  // myak,
-  // olive,
-  // pefi,
-  // png,
-  // qi,
-  // relay,
-  // sherpa,
-  // shibx,
-  // sing,
-  // snob,
-  // spell,
-  // sushi,
-  // syn,
-  // teddy,
-  // tsd,
-  // usdc,
-  usdt,
-  // vso,
-  // wmetis,
-  // wbtc,
-  // wet,
-  weth,
-  // xava,
-  // yak,
-]
+const tokens = [
+    // matic,
+    // aave,
+    // apeX,
+    // apein,
+    // bifi,
+    // blizz,
+    maia,
+    // bnb,
+    // boofi,
+    // chart,
+    musdc,
+    // dregg,
+    // ele,
+    // elk,
+    // frax,
+    // gb,
+    // hat,
+    // husky,
+    // ice,
+    // joe,
+    // klo,
+    // link,
+    // mai,
+    // mim,
+    // usdc,
+    // myak,
+    // olive,
+    // pefi,
+    // png,
+    // qi,
+    // relay,
+    // sherpa,
+    // shibx,
+    // sing,
+    // snob,
+    // spell,
+    // sushi,
+    // syn,
+    // teddy,
+    // tsd,
+    // usdc,
+    usdt,
+    // vso,
+    // wmetis,
+    // wbtc,
+    // wet,
+    weth,
+    // xava,
+    // yak,
+];
+
+export default tokens;
