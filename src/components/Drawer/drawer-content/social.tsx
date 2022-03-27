@@ -25,7 +25,7 @@ export default function Social() {
                 <img src={Telegram} alt="telegram link icon" />
             </Link>
 
-            <Link href="https://dexscreener.com/metis/0x82758824b93f2648bcc9387878cf443c9c0cb768" target="_blank">
+            <Link href="https://dexscreener.com/metis/0xa3e8e7eb4649ffc6f3cbe42b4c2ecf6625d3e802" target="_blank">
                 <img src={DexScreener} alt="dexscreener link icon" />
             </Link>
 
