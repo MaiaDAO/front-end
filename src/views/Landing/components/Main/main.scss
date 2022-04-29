@@ -223,3 +223,25 @@
         }
     }
 }
+
+@media screen and (max-width: 720px) {
+    .landing-main {
+        .landing-main-btns-wrap {
+            flex-direction: column;
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+            }
+
+            nav ul li {
+                border-radius: 0.31em;
+                width: 12em;
+            }
+
+            .landing-main-btn {
+                margin: 15px;
+            }
+        }
+    }
+}
