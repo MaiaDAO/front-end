@@ -1,16 +1,19 @@
-import React from "react";
-import "./landing.scss";
-import Header from "./components/Header";
-import Main from "./components/Main";
 import Background from "./components/Background";
+import Header from "./components/Header";
+import FirstSection from "./components/Sections/FirstSection";
+import SecondSection from "./components/Sections/SecondSection";
+import ThirdSection from "./components/Sections/ThirdSection";
+import LandingLayout from "./LandingLayout";
 
 function Landing() {
     return (
-        <div className="landing-root">
+        <LandingLayout>
             <Header />
-            <Main />
             <Background />
-        </div>
+            <FirstSection />
+            <SecondSection />
+            <ThirdSection />
+        </LandingLayout>
     );
 }
 
