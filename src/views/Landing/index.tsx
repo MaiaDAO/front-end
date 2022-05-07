@@ -1,4 +1,5 @@
 import Background from "./components/Background";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import FifthSection from "./components/Sections/FifthSection";
 import FirstSection from "./components/Sections/FirstSection";
@@ -19,6 +20,7 @@ function Landing() {
             <FourthSection />
             <FifthSection />
             <SixthSection />
+            <Footer />
         </LandingLayout>
     );
 }
