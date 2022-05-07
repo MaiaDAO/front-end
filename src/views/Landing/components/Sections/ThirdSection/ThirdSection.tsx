@@ -1,4 +1,4 @@
-import { Box, Button, Grid, styled, Typography } from "@material-ui/core";
+import { Box, Button, Grid, styled, Typography, useMediaQuery } from "@material-ui/core";
 import "./third-section.scss";
 
 const Left = styled(Box)({
@@ -8,7 +8,6 @@ const Left = styled(Box)({
 });
 
 const Right = styled(Box)({
-    height: "720px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -35,15 +34,17 @@ const ButtonStyled = styled(Button)({
 });
 
 const ThirdSection = () => {
+    const isDesktop = useMediaQuery("(min-width:960px)");
+
     return (
         <>
-            <Box height={720}>
+            <Box height={isDesktop ? 720 : 360}>
                 <Grid container>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Left />
                     </Grid>
-                    <Grid item xs={6}>
-                        <Right>
+                    <Grid item xs={12} md={6}>
+                        <Right height={isDesktop ? 720 : 360}>
                             <Title>100%</Title>
                             <Title>Community</Title>
                             <Box display="flex" width={350} mt={2}>
@@ -53,10 +54,10 @@ const ThirdSection = () => {
                     </Grid>
                 </Grid>
             </Box>
-            <Box height={720}>
+            <Box height={isDesktop ? 720 : 360}>
                 <Grid container>
-                    <Grid item xs={6}>
-                        <Right>
+                    <Grid item xs={12} md={6}>
+                        <Right height={isDesktop ? 720 : 360}>
                             <Title>100%</Title>
                             <Title>Community</Title>
                             <Box display="flex" width={350} mt={2}>
@@ -64,18 +65,18 @@ const ThirdSection = () => {
                             </Box>
                         </Right>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Left />
                     </Grid>
                 </Grid>
             </Box>
-            <Box height={720}>
+            <Box height={isDesktop ? 720 : 360}>
                 <Grid container>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Left />
                     </Grid>
-                    <Grid item xs={6}>
-                        <Right>
+                    <Grid item xs={12} md={6}>
+                        <Right height={isDesktop ? 720 : 360}>
                             <Title>100%</Title>
                             <Title>Community</Title>
                             <Box display="flex" width={350} mt={2}>

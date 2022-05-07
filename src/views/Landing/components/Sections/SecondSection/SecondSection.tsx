@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@material-ui/core";
+import { Box, Grid, Typography, useMediaQuery } from "@material-ui/core";
 import { styled } from "@material-ui/styles";
 
 const Container = styled(Box)({
@@ -28,17 +28,19 @@ const Subtitle = styled(Typography)({
 });
 
 const SecondSection = () => {
+    const isDesktop = useMediaQuery("(min-width:960px)");
+
     return (
         <Container mt={10} py={10}>
-            <Box display="flex" flexDirection="column">
-                <Grid container spacing={10}>
-                    <Grid item xs={6}>
+            <Box display="flex" flexDirection="column" px={2}>
+                <Grid container spacing={isDesktop ? 10 : 2}>
+                    <Grid item xs={12} md={6}>
                         <StyledBox>
                             <Title>Treasury Balance</Title>
                             <Subtitle>$4,537,292</Subtitle>
                         </StyledBox>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <StyledBox>
                             <Title>Treasury Balance</Title>
                             <Subtitle>$4,537,292</Subtitle>
@@ -52,14 +54,14 @@ const SecondSection = () => {
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid container spacing={10}>
-                    <Grid item xs={6}>
+                <Grid container spacing={isDesktop ? 10 : 2}>
+                    <Grid item xs={12} md={6}>
                         <StyledBox>
                             <Title>Treasury Balance</Title>
                             <Subtitle>$4,537,292</Subtitle>
                         </StyledBox>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <StyledBox>
                             <Title>Treasury Balance</Title>
                             <Subtitle>$4,537,292</Subtitle>
