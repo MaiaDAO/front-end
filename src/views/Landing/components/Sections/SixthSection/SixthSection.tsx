@@ -1,4 +1,4 @@
-import { Box, Grid, styled, Typography } from "@material-ui/core";
+import { Box, Grid, styled, Typography, useMediaQuery } from "@material-ui/core";
 import React from "react";
 import zeusImage from "src/assets/icons/zeus.png";
 
@@ -21,6 +21,7 @@ const InvertedText = styled(Typography)({
 });
 
 const SixthSection = () => {
+    const isDesktop = useMediaQuery("(min-width:960px)");
     return (
         <Box bgcolor="rgba(49, 69, 137, 0.21);" height={500} pt={5}>
             <Grid container>
@@ -28,21 +29,23 @@ const SixthSection = () => {
                     <Box justifyContent="center" display="flex" mt={2}>
                         <Title>Never was so easy!</Title>
                     </Box>
-                    <Box mt={-10}>
-                        <img src={zeusImage} alt="Zeus Logo" width="auto" height="auto" />
-                    </Box>
+                    {isDesktop && (
+                        <Box mt={-10}>
+                            <img src={zeusImage} alt="Zeus Logo" width="auto" height="auto" />
+                        </Box>
+                    )}
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Box maxWidth="60%" my={4} p={2} bgcolor="white" height={50} borderRadius={10}>
+                    <Box mx={2} my={4} p={2} bgcolor="white" height={50} borderRadius={10}>
                         <Text>1. Get ETH</Text>
                     </Box>
-                    <Box maxWidth="60%" my={4} p={2} bgcolor="white" height={50} borderRadius={10}>
+                    <Box mx={2} my={4} p={2} bgcolor="white" height={50} borderRadius={10}>
                         <Text>2. Bridge to Metis L2</Text>
                     </Box>
-                    <Box maxWidth="60%" my={4} p={2} bgcolor="white" height={50} borderRadius={10}>
+                    <Box mx={2} my={4} p={2} bgcolor="white" height={50} borderRadius={10}>
                         <Text>3. Swap for MAIA</Text>
                     </Box>
-                    <Box maxWidth="60%" my={4} p={2} bgcolor="#1D3473" height={50} borderRadius={10}>
+                    <Box mx={2} my={4} p={2} bgcolor="#1D3473" height={50} borderRadius={10}>
                         <InvertedText>4. Start Staking!</InvertedText>
                     </Box>
                 </Grid>

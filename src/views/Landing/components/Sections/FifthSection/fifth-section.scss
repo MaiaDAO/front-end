@@ -1,0 +1,31 @@
+.fifth-section {
+    color: white;
+    background-color: #b97ddd;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .title {
+        font-size: 48px;
+        font-family: Montserrat Bold;
+    }
+
+    .subtitle {
+        font-family: Montserrat Medium;
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .fifth-section {
+        .title {
+            font-size: 96px;
+        }
+
+        .subtitle {
+            font-size: 48px;
+        }
+    }
+}
