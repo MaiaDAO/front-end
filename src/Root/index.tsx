@@ -7,7 +7,7 @@ import Landing from "./Landing";
 
 function Root() {
     const isApp = (): boolean => {
-        return window.location.host.includes("app");
+        return window.location.host.includes("app.maiadao");
         //return true;
     };
 
