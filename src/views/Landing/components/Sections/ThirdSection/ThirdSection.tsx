@@ -4,12 +4,12 @@ import bg from "src/assets/illustration/bg-section3.png";
 
 const LeftImage = styled("img")({
     objectFit: "none",
-    objectPosition: "0px 50%",
+    objectPosition: "0px 80%",
 });
 
 const RightImage = styled("img")({
     objectFit: "none",
-    objectPosition: "100% 50%",
+    objectPosition: "100% 10%",
 });
 
 const Right = styled(Box)({
