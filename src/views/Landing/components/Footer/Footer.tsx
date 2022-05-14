@@ -22,7 +22,7 @@ const FootNote = styled(Typography)({
 const Footer = () => {
     return (
         <Box bgcolor="#1D3473" minHeight={400} pt={10}>
-            <Grid container direction="row" justifyContent="center" alignItems="center">
+            <Grid container direction="row" justifyContent="center">
                 <Grid item xs={6} md={4} lg={3}>
                     <Title paragraph align="center">
                         Community
@@ -41,55 +41,68 @@ const Footer = () => {
                 </Grid>
                 <Grid item xs={6} md={4} lg={3}>
                     <Title paragraph align="center">
-                        Community
+                        Tools
                     </Title>
                     <Grid container direction="column">
                         <Grid item>
-                            <Text align="center">Discordd</Text>
+                            <Text align="center">DefiLlama</Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Twitter</Text>
+                            <Text align="center">CoinGecko</Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Telegram</Text>
+                            <Text align="center">CoinMarketCap</Text>
+                        </Grid>
+                        <Grid item>
+                            <Text align="center">Github</Text>
+                        </Grid>
+                        <Grid item>
+                            <Text align="center">Bridge List</Text>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid item xs={6} md={4} lg={3}>
+                    <Title paragraph align="center">
+                        Info
+                    </Title>
+                    <Grid container direction="column">
+                        <Grid item>
+                            <Text align="center">Medium</Text>
+                        </Grid>
+                        <Grid item>
+                            <Text align="center">Docs</Text>
+                        </Grid>
+                        <Grid item>
+                            <Text align="center">FAQ's</Text>
+                        </Grid>
+                        <Grid item>
+                            <Text align="center">Media Kit</Text>
+                        </Grid>
+                        <Grid item>
+                            <Text align="center">Legacy Website</Text>
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={6} md={4} lg={3}>
                     <Title paragraph align="center">
-                        Community
+                        Participate
                     </Title>
                     <Grid container direction="column">
                         <Grid item>
-                            <Text align="center">Discordd</Text>
+                            <Text align="center">Gobernance</Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Twitter</Text>
+                            <Text align="center">Propose Partnership</Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Telegram</Text>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid item xs={6} md={4} lg={3}>
-                    <Title paragraph align="center">
-                        Community
-                    </Title>
-                    <Grid container direction="column">
-                        <Grid item>
-                            <Text align="center">Discordd</Text>
-                        </Grid>
-                        <Grid item>
-                            <Text align="center">Twitter</Text>
-                        </Grid>
-                        <Grid item>
-                            <Text align="center">Telegram</Text>
+                            <Text align="center">Join as Contributor</Text>
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
 
-            <Box mt={10} px={4}>
+            <Box mt={10} px={4} pb={10}>
                 <FootNote>
                     Use of hermes.maiadao.io (the “Site”) and the Hermes Protocol (the “Protocol”) is strictly at your own risk. Before using the Protocol, users should fully
                     understand and accept the risks involved, which include, but are not limited to, front-end errors, bugs, hacks, regulatory and tax uncertainty, and total loss

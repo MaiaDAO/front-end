@@ -20,12 +20,23 @@ const StyledBox = styled(Box)({
     padding: "10px 0px",
 });
 
+const Hero = styled(Typography)({
+    fontFamily: "Montserrat Light",
+    fontSize: 18,
+    letterSpacing: "1.5rem",
+    color: "white",
+    textTransform: "uppercase",
+    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.25)",
+    lineHeight: "4rem",
+});
+
 const Title = styled(Typography)({
     fontFamily: "Montserrat Bold",
     fontSize: 24,
     color: "white",
     padding: "5px 50px 5px 50px",
 });
+
 const Subtitle = styled(Typography)({
     fontFamily: "Montserrat Medium",
     fontSize: 22,
@@ -71,7 +82,7 @@ const SecondSection = () => {
                 <Grid container>
                     <Grid item xs={12}>
                         <Box sx={{ textAlign: "center" }}>
-                            <Title>Community Owned</Title>
+                            <Hero>Community Owned</Hero>
                         </Box>
                     </Grid>
                 </Grid>
