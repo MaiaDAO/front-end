@@ -1,10 +1,15 @@
-import { Box, Grid, styled, Typography } from "@material-ui/core";
+import { Box, Grid, styled, Typography, Link } from "@material-ui/core";
 import React from "react";
 
 const Title = styled(Typography)({
     color: "white",
     fontFamily: "Montserrat Bold",
     fontSize: 22,
+});
+
+const TextLink = styled(Link)({
+    color: "white",
+    cursor: "pointer",
 });
 
 const Text = styled(Typography)({
@@ -29,13 +34,19 @@ const Footer = () => {
                     </Title>
                     <Grid container direction="column">
                         <Grid item>
-                            <Text align="center">Discordd</Text>
+                            <Text align="center">
+                                <TextLink href="#">Discordd</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Twitter</Text>
+                            <Text align="center">
+                                <TextLink href="#">Twitter</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Telegram</Text>
+                            <Text align="center">
+                                <TextLink href="#">Telegram</TextLink>
+                            </Text>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -45,19 +56,29 @@ const Footer = () => {
                     </Title>
                     <Grid container direction="column">
                         <Grid item>
-                            <Text align="center">DefiLlama</Text>
+                            <Text align="center">
+                                <TextLink href="#">DefiLlama</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">CoinGecko</Text>
+                            <Text align="center">
+                                <TextLink href="#">CoinGecko</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">CoinMarketCap</Text>
+                            <Text align="center">
+                                <TextLink href="#">CoinMarketCap</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Github</Text>
+                            <Text align="center">
+                                <TextLink href="#">Discordd</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Bridge List</Text>
+                            <Text align="center">
+                                <TextLink href="#">Bridge List</TextLink>
+                            </Text>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -68,19 +89,29 @@ const Footer = () => {
                     </Title>
                     <Grid container direction="column">
                         <Grid item>
-                            <Text align="center">Medium</Text>
+                            <Text align="center">
+                                <TextLink href="#">Discordd</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Docs</Text>
+                            <Text align="center">
+                                <TextLink href="#">Docs</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">FAQ's</Text>
+                            <Text align="center">
+                                <TextLink href="#">FAQ's</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Media Kit</Text>
+                            <Text align="center">
+                                <TextLink href="#">Media Kit</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Legacy Website</Text>
+                            <Text align="center">
+                                <TextLink href="#">Legacy Website</TextLink>
+                            </Text>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -90,13 +121,19 @@ const Footer = () => {
                     </Title>
                     <Grid container direction="column">
                         <Grid item>
-                            <Text align="center">Gobernance</Text>
+                            <Text align="center">
+                                <TextLink href="#">Gobernance</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Propose Partnership</Text>
+                            <Text align="center">
+                                <TextLink href="#">Propose Partnership</TextLink>
+                            </Text>
                         </Grid>
                         <Grid item>
-                            <Text align="center">Join as Contributor</Text>
+                            <Text align="center">
+                                <TextLink href="#">Join as Contributor</TextLink>
+                            </Text>
                         </Grid>
                     </Grid>
                 </Grid>
