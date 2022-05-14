@@ -23,7 +23,7 @@ const InvertedText = styled(Typography)({
 const SixthSection = () => {
     const isDesktop = useMediaQuery("(min-width:960px)");
     return (
-        <Box bgcolor="#31458936" height={1000} pt={5}>
+        <Box bgcolor="#31458936" height={500} pt={5}>
             <Grid container>
                 <Grid item xs={12} md={6}>
                     <Box justifyContent="center" display="flex" mt={2}>
