@@ -58,7 +58,7 @@ const SecondSection = () => {
                     <Grid item xs={12} md={6}>
                         <StyledBox minWidth={isDesktop ? 400 : "inherit"}>
                             <Title>MAIA Price</Title>
-                            <Subtitle>{isAppLoading ? <Skeleton width="100px" /> : `$${trim(app.marketPrice, 2)}`}</Subtitle>
+                            <Subtitle>{isAppLoading ? <Skeleton width="100%" /> : `$${trim(app.marketPrice, 2)}`}</Subtitle>
                         </StyledBox>
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -66,7 +66,7 @@ const SecondSection = () => {
                             <Title>Treasury Balance</Title>
                             <Subtitle>
                                 {isAppLoading ? (
-                                    <Skeleton width="250px" />
+                                    <Skeleton width="100%" />
                                 ) : (
                                     new Intl.NumberFormat("en-US", {
                                         style: "currency",
@@ -92,7 +92,7 @@ const SecondSection = () => {
                             <Title>Market Cap</Title>
                             <Subtitle>
                                 {isAppLoading ? (
-                                    <Skeleton width="160px" />
+                                    <Skeleton width="100%" />
                                 ) : (
                                     new Intl.NumberFormat("en-US", {
                                         style: "currency",
@@ -107,7 +107,7 @@ const SecondSection = () => {
                     <Grid item xs={12} md={6}>
                         <StyledBox minWidth={isDesktop ? 400 : "inherit"}>
                             <Title>Current APY</Title>
-                            <Subtitle>{isAppLoading ? <Skeleton width="250px" /> : `${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`}</Subtitle>
+                            <Subtitle>{isAppLoading ? <Skeleton width="100%" /> : `${new Intl.NumberFormat("en-US").format(Number(trimmedStakingAPY))}%`}</Subtitle>
                         </StyledBox>
                     </Grid>
                 </Grid>
