@@ -104,7 +104,7 @@ function Dashboard() {
                                     />
                                 </div> */}
 
-                                <p className="card-title">Treasury Balance</p>
+                                <p className="card-title">RFV</p>
                                 <p className="card-value">
                                     {isAppLoading ? (
                                         <Skeleton width="250px" />
