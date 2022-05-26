@@ -1,5 +1,4 @@
 import { Grid, Typography, Box, styled, Button, useMediaQuery } from "@material-ui/core";
-import React from "react";
 
 const HeroImageDesktop = styled("div")({
     width: "500px",

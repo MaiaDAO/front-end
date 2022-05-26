@@ -35,7 +35,7 @@ const Footer = () => {
                     <Grid container direction="column">
                         <Grid item>
                             <Text align="center">
-                                <TextLink href="#">Discordd</TextLink>
+                                <TextLink href="#">Discord</TextLink>
                             </Text>
                         </Grid>
                         <Grid item>
@@ -72,7 +72,7 @@ const Footer = () => {
                         </Grid>
                         <Grid item>
                             <Text align="center">
-                                <TextLink href="#">Discordd</TextLink>
+                                <TextLink href="#">Discord</TextLink>
                             </Text>
                         </Grid>
                         <Grid item>
@@ -90,7 +90,7 @@ const Footer = () => {
                     <Grid container direction="column">
                         <Grid item>
                             <Text align="center">
-                                <TextLink href="#">Discordd</TextLink>
+                                <TextLink href="#">Discord</TextLink>
                             </Text>
                         </Grid>
                         <Grid item>
@@ -122,7 +122,7 @@ const Footer = () => {
                     <Grid container direction="column">
                         <Grid item>
                             <Text align="center">
-                                <TextLink href="#">Gobernance</TextLink>
+                                <TextLink href="#">Governance</TextLink>
                             </Text>
                         </Grid>
                         <Grid item>
