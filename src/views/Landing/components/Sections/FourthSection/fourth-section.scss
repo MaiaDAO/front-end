@@ -1,0 +1,23 @@
+.fourth-section {
+    height: 1000px;
+    background: linear-gradient(180deg, #1d3473 25%, #b97ddd 50%, #1d3473 75%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .inner-logo {
+        position: absolute;
+    }
+}
+.fourth-section-mobile {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    background: linear-gradient(180deg, #1d3473 30%, #b97ddd 50%, #1d3473 70%);
+}
+
+@media screen and (max-width: 960px) {
+    .inner-logo {
+        display: none;
+    }
+}
