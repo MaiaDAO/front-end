@@ -7,7 +7,7 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import { getMarketPrice, getTokenPrice } from "../../helpers";
 import { RootState } from "../store";
 import allBonds from "../../helpers/bond";
-import { getHermesValue } from "../../hooks/hermesValue";
+// import { getHermesValue } from "../../hooks/hermesValue";
 
 const axios = require("axios");
 
@@ -36,11 +36,11 @@ export const loadAppDetails = createAsyncThunk("app/loadAppDetails", async ({ ne
 
     //const treasuryBalance = tokenBalances.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
 
-    const hermesValue = await getHermesValue(provider);
+    // const hermesValue = await getHermesValue(provider);
 
     let response = await axios.get("https://api.llama.fi/tvl/maia-dao");
 
-    const treasuryBalance = response.data + hermesValue;
+    const treasuryBalance = response.data;
 
     //const rfvTreasury = tokenAmounts.reduce((tokenBalance0, tokenBalance1) => (tokenBalance0 ? tokenBalance0 : 0) + (tokenBalance1 ? tokenBalance1 : 0), 0);
 
